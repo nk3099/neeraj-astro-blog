@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "Incremental Static Regeneration (ISR)"
+title: "Incremental Static Regeneration"
 publishedDate: 2024-09-10
 description: "Transitioning from Static to Dynamic Data Fetching in Next.js"
 author: "Nitish Kumar"
