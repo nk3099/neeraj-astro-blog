@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Incremental Static Regeneration (ISR)"
 publishedDate: 2024-09-10
-description: "🌟 Transitioning from Static to Dynamic Data Fetching in Next.js"
+description: "Transitioning from Static to Dynamic Data Fetching in Next.js"
 author: "Nitish Kumar"
 image:
   url: ""
@@ -10,8 +10,6 @@ image:
 tags: ["TIL", "next.js", "learn-in-public"]
 hashnodeUrl: "https://nov1ce.hashnode.dev/incremental-static-regeneration-isr"
 ---
-
-### 🛠️ TIL: Overcoming Vercel Write Access Limitations
 
 In a recent TIL post, I discussed my approach to fetching data using webhooks and storing it in JSON files. However, I encountered an issue when deploying on Vercel—specifically, a lack of write access to the file system. To resolve this, I initially considered migrating to a Postgres instance on Supabase for a more robust and accurate data retrieval mechanism.
 
