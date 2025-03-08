@@ -1,0 +1,24 @@
+---
+import authorData from "../data/author.json";
+---
+
+<div>
+  <div>
+    <div class="columns is-vcentered is-centered">
+      <div class="column content section is-8 has-text-centered">
+        <h1 class="title is-size-1">{authorData.name}</h1>
+        <p class="is-size-5">
+          {authorData.bio}
+        </p>
+        <figure>
+          <img
+            src={authorData.avatar_url}
+            alt="profile_image"
+            class="is-rounded"
+            style="border-radius: 50%; height: 160px;"
+          />
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>

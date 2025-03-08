@@ -1,0 +1,13 @@
+---
+// Navbar.astro
+import NavTopics from "./NavTopics.astro";
+import NameComponent from "./NameComponent.astro";
+---
+
+<NameComponent />
+<nav>
+  <div class="container flex flex-row justify-between text-lg pb-5">
+    <NavTopics />
+    <div class="items-center">{/* <DarkMode /> */}</div>
+  </div>
+</nav>

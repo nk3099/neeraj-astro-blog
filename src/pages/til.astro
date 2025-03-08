@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DashedComponent from "../components/DashedComponent.astro";
+
+const allPosts = Object.values(
+  import.meta.glob("./posts/*.md", { eager: true }),
+);
+
+// Filter posts that include "TIL" in the title or tags
+const tilPosts = allPosts.filter(
+  (post: any) =>
+    post.frontmatter.title.includes("TIL") ||
+    post.frontmatter.tags?.some((tag: string) => tag.includes("TIL"))
+);
+
+const title ="Nitish Kumar"
+---
+
+<BaseLayout {title}>
+  <h1 class="text-3xl font-bold">🧠 TIL</h1>
+  <div class="italic text-zinc-500 mb-4 mt-6 flex flex-row justify-between text-lg">
+    <p>
+      Subscribe to{" "}
+      <a href="https://hashnode.com/@nov1ce" class="text-blue-400 hover:text-blue-300 hover:underline">
+        Hashnode Feed
+      </a>
+    </p>
+  </div>
+  <DashedComponent />
+
+  <!-- TIL Posts Section -->
+  <ul>
+    {tilPosts.map((post: any) => (
+      <li class="mb-4" key={post.frontmatter.slug}>
+        <div class="flex flex-row gap-6 text-lg">
+          <p>
+            {new Date(post.frontmatter.publishedDate).toLocaleDateString("en-us", {
+              year: "numeric",
+              month: "short",
+              day: "2-digit",
+            })}
+          </p>
+          <!-- Displaying the post title as a link -->
+          <a href={post.url} class="text-lg text-blue-400 hover:text-blue-300 hover:underline">
+            {post.frontmatter.title}
+          </a>
+        </div>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

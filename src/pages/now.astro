@@ -1,0 +1,20 @@
+---
+import DashedComponent from "../components/DashedComponent.astro"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import NowContent from "./components/nowContent.astro"
+const title ="Nitish Kumar"
+---
+<BaseLayout {title}>
+<h1 class="text-3xl font-bold ">🖥️ Now</h1>
+<div class="italic text-zinc-500 mb-4 mt-6 flex flex-row justify-between text-lg">
+  <p>
+    Subscribe to{" "}
+    <a href="https://hashnode.com/@nov1ce" class="text-blue-400 hover:text-blue-300 hover:underline">
+      Hashnode Feed
+    </a>
+  </p>
+</div>
+<DashedComponent/>
+<NowContent/>
+
+</BaseLayout>

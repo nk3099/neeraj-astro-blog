@@ -1,0 +1,47 @@
+/* Dark mode colors. */
+// :root[data-theme="dark"] {
+//   --sl-color-accent-low: #1a2456; /* Slightly deeper blue for better contrast */
+//   --sl-color-accent: #3a50ff; /* Vibrant blue */
+//   --sl-color-accent-high: #a3baff; /* Softer light blue */
+//   --sl-color-white: white;
+//   --sl-color-gray-1: white; /* Lighter gray for text */
+//   --sl-color-gray-2: white;
+//   --sl-color-gray-3: white;
+//   --sl-color-gray-4: white;
+//   --sl-color-gray-5: white;
+//   --sl-color-gray-6: white; /* Darker background */
+//   --sl-color-black: #141519; /* Deep black */
+//   --sl-color-title: #a3baff; /* Light blue for titles and headings */
+//   --sl-color-heading: #ffffff; /* White for headings */
+//   --sl-color-link: #3a50ff; /* Vibrant blue for links */
+//   --sl-color-paragraph: white;
+//   --sl-color-h1: #a3baff; /* Light blue for h1 */
+//   --sl-color-h2: white; /* Slightly softer blue for h2 */
+//   --sl-color-anchor-hover: white; /* Hover color for links */
+//   --bulma-title-color: #a3baff; /* Light blue for Bulma titles */
+//   background-color: #444;
+// }
+
+/* Light mode colors. */
+:root[data-theme="light"] {
+  --sl-color-accent-low: #d0e0ff; /* Softer light blue */
+  --sl-color-accent: #ff3b3b; /* Vivid red accent */
+  --sl-color-accent-high: #243187; /* Deep blue highlight */
+  --sl-color-white: #141519;
+  --sl-color-gray-1: #1e2028; /* Dark text */
+  --sl-color-gray-2: #2e313a;
+  --sl-color-gray-3: #4a4e58;
+  --sl-color-gray-4: #787c87;
+  --sl-color-gray-5: #b8bbc2;
+  --sl-color-gray-6: #e1e4ea;
+  --sl-color-gray-7: #f0f2f5; /* Slightly softer white */
+  --sl-color-black: #ffffff;
+  --sl-color-title: #243187; /* Deep blue for titles and headings */
+  --sl-color-heading: #1e2028; /* Dark text for headings */
+  --sl-color-link: #ff3b3b; /* Vivid red for links */
+  --sl-color-paragraph: #4a4e58; /* Soft gray for paragraph text */
+  --sl-color-h1: #243187; /* Deep blue for h1 */
+  --sl-color-h2: #ff6b6b; /* Softer red for h2 */
+  --sl-color-anchor-hover: #ff6b6b; /* Hover color for links */
+  --bulma-title-color: #243187; /* Deep blue for Bulma titles */
+}

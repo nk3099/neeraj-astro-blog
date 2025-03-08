@@ -1,0 +1,59 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPage = pathname.split("/")[1];
+import Social from "./Social.astro";
+---
+
+<div>
+    <nav
+        class="navbar container"
+        role="navigation"
+        aria-label="main navigation"
+    >
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                <div class="image">
+                    <img src="/favicon.png" style="width: auto;" />
+                </div>
+            </a>
+            <a
+                role="button"
+                class="navbar-burger burger"
+                aria-label="menu"
+                aria-expanded="false"
+                data-target="menu"
+                onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
+            >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start"></div>
+            <div class="navbar-end">
+                <a
+                    class={`navbar-item ${currentPage === "blog" && " is-active"}`}
+                    href="/blog"
+                >
+                    <span class="has-text-weight-bold"> Blog</span>
+                </a>
+                <a
+                    class={`navbar-item ${currentPage === "gallery" && "is-active"}`}
+                    href="/gallery"
+                >
+                    <span class="has-text-weight-bold"> Gallery</span>
+                </a>
+                <div class="navbar-item">
+                    <Social />
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<style>
+    .navbar-item.is-active {
+        background-color: lightgrey;
+        color: black;
+    }
+</style>

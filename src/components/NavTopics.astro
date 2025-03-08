@@ -1,0 +1,15 @@
+---
+// NavTopics.astro
+import { links } from "./utils/links"
+import ThemeIcon from "./ThemeIcon.astro"
+import "../styles/docs.scss";
+import "../styles/global.css"
+---
+
+<div class="flex flex-row gap-3 mt-3 text-blue-400">
+  {links.map((link) => (
+    <a href={link.href} class="capitalize w-full">
+      {link.label}
+    </a>
+  ))}
+</div>

@@ -1,0 +1,37 @@
+---
+import DashedComponent from "../components/DashedComponent.astro";
+import { socialLinks } from "../../src/components/utils/socialLinks"
+import BaseLayout from "../layouts/BaseLayout.astro";
+const title ="Nitish Kumar"
+
+
+---
+
+<BaseLayout {title}>
+    <div class="contact-page">
+  <h1 class="font-bold text-3xl">📮 Contact Me</h1>
+  <div class="italic text-zinc-500 mb-4 mt-6 flex flex-row justify-between text-lg">
+    <p>
+      Subscribe to{" "}
+      <a href="https://hashnode.com/@nov1ce" class="text-blue-400 hover:underline">
+        Hashnode Feed
+      </a>
+    </p>
+  </div>
+  <DashedComponent />
+  <p class="py-1 text-lg">
+    Email: <em>nitishkumar at alumni.iitm.ac.in</em>
+  </p>
+  <p class="text-lg pt-1">My other identities:</p>
+  <ul class="list-disc mx-10 text-lg">
+    {socialLinks.map((link, index) => (
+      <li key={index} class="mb-1">
+        {link.site}:{" "}
+        <a href={link.href} class="text-blue-400 hover:underline">
+          {link.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+</BaseLayout>

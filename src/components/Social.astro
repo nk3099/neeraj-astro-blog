@@ -1,0 +1,32 @@
+---
+import { Github, Linkedin, Mail } from "lucide-astro";
+import authorData from "../data/author.json";
+---
+
+<ul class="buttons">
+    <a class="button is-small" href={authorData.github} target="_blank">
+        <span class="icon"><Github /></span>
+    </a>
+    <a class="button is-small" href={authorData.linkedin} target="_blank">
+        <span class="icon"><Linkedin /></span>
+    </a>
+    <a class="button is-small" href={authorData.mail} target="_blank">
+        <span class="icon"><Mail /></span>
+    </a>
+    <a class="button is-small" href={authorData.leetcode} target="_blank">
+        <span class="icon">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/free-leetcode-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-4-pack-logos-icons-2944960.png?f=webp&w=256"/>
+        </span>
+    </a>
+    <a
+        class="button is-small"
+        href="https://myanimelist.net/profile/nitink21"
+        target="_blank"
+    >
+        <span class="icon">
+            <img
+                src="https://image.myanimelist.net/ui/OK6W_koKDTOqqqLDbIoPAiC8a86sHufn_jOI-JGtoCQ"
+            />
+        </span>
+    </a>
+</ul>

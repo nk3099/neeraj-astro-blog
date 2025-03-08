@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const { title, description, tag, posts } = Astro.props;
+---
+
+<BaseLayout {title} {description}>
+    <h2 class="title is-size-3 is-family-secondary is-italic">Blogs</h2>
+    <div class="tags">
+        <p class="tag">
+            <a href="/blog">all blogs</a>
+        </p>
+        <p class="tag">
+            <a href={`/tags/${tag}`}>{tag}</a>
+        </p>
+    </div>
+    <br />
+    <br />
+    <ul>
+        {
+            posts.map((post: any) => (
+                <ul>
+                    <a href={post.url}>{post.frontmatter.title}</a>
+                </ul>
+            ))
+        }
+    </ul>
+</BaseLayout>
