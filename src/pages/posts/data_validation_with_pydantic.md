@@ -10,9 +10,6 @@ image:
 tags: ["TIL", "Python", "learn-in-public"]
 ---
 
-
-
-# Data Validation with Pydantic
 In the world of Python programming, one of the challenges that developers often encounter is the lack of static typing. Unlike statically typed languages like C++, Python uses dynamic typing. This means that when you declare a variable, you don't need to explicitly specify its type, leading to flexibility but also potential issues in larger codebases.
 
 Let’s explore the concept of dynamic typing in Python and how it contrasts with static typing in other languages like C++:
