@@ -35,7 +35,7 @@ pip install fastapi
 pip install uvicorn
 ```
 
---
+---
 
 ## 🕹️ Your First FastAPI Application
 Let's start with the classic "Hello, World!" example to see FastAPI in action:
