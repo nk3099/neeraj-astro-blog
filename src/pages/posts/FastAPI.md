@@ -295,5 +295,5 @@ Let's briefly compare FastAPI with another popular Python web framework, Flask:
 
 ---
 
-📂 **For full code access, refer to [this repo here](https://github.com/your-username/your-repo-name)**.
+📂 **For full code access, refer to [this repo here](https://github.com/iamheavymetalx7/fastapi-and-pydantic)**.
 
