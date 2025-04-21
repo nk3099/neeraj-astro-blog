@@ -28,9 +28,11 @@ const title ="Nitish Kumar"
   </div>
   <DashedComponent />
 
-  <!-- TIL Posts Section -->
-  <ul>
-    {tilPosts.map((post: any) => (
+<!-- TIL Posts Section -->
+<ul>
+  {tilPosts
+    .sort((a, b) => new Date(b.frontmatter.publishedDate) - new Date(a.frontmatter.publishedDate))
+    .map((post: any) => (
       <li class="mb-4" key={post.frontmatter.slug}>
         <div class="flex flex-row gap-6 text-lg">
           <p>
@@ -40,12 +42,11 @@ const title ="Nitish Kumar"
               day: "2-digit",
             })}
           </p>
-          <!-- Displaying the post title as a link -->
           <a href={post.url} class="text-lg text-blue-400 hover:text-blue-300 hover:underline">
             {post.frontmatter.title}
           </a>
         </div>
       </li>
     ))}
-  </ul>
+</ul>
 </BaseLayout>
