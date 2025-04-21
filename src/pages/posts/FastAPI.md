@@ -51,7 +51,7 @@ def root():
 
 ```
 
-![Image](https://github.com/user-attachments/assets/04c7bb8c-0e31-4440-9de4-9e3618f9726f)
+![](https://github.com/user-attachments/assets/04c7bb8c-0e31-4440-9de4-9e3618f9726f)
 
 
 Explanation:
@@ -112,7 +112,7 @@ def create_item(item: str):
 
 ```
 
-![Image](https://github.com/user-attachments/assets/c1e3a0d2-151d-489a-a8e9-d9d8c185ffaf)
+![](https://github.com/user-attachments/assets/c1e3a0d2-151d-489a-a8e9-d9d8c185ffaf)
 
 
 Explanation:
@@ -172,7 +172,7 @@ def get_item(item_id: int) -> str:
 
 ```
 
-![Image](https://github.com/user-attachments/assets/8618f6b8-45c3-4e68-a3e1-8014e227f756)
+![](https://github.com/user-attachments/assets/8618f6b8-45c3-4e68-a3e1-8014e227f756)
 
 Explanation:
 
@@ -248,7 +248,7 @@ Now, when you use curl to create an item, you need to send a JSON payload:
 curl -X POST -H "Content-Type: application/json" -d '{"text":"apple"}' 'http://127.0.0.1:8000/items'
 
 ```
-![Image](https://github.com/user-attachments/assets/222b5004-441c-4001-88ca-75b2cfda7c79)
+![](https://github.com/user-attachments/assets/222b5004-441c-4001-88ca-75b2cfda7c79)
 
 ---
 
@@ -285,12 +285,12 @@ To access it, go to `http://127.0.0.1:8000/docs#/` in your browser. You'll find:
 - Clear Endpoint Definitions: Each endpoint is clearly documented, including the expected request parameters, body, and response formats.
 - Schema Definitions: You can see the definitions of your Pydantic models.
 
-![Image](https://github.com/user-attachments/assets/e0486ff7-ab73-48d9-a910-57ceb082d6a0)
-![Image](https://github.com/user-attachments/assets/bc094958-1f65-4072-b45a-f444d55e55ff)
+![](https://github.com/user-attachments/assets/e0486ff7-ab73-48d9-a910-57ceb082d6a0)
+![](https://github.com/user-attachments/assets/bc094958-1f65-4072-b45a-f444d55e55ff)
 
 
 Also if you click on `openapi.json`, it will give you the complete json data file of all the `api` details that you have in the project.
-![Image](https://github.com/user-attachments/assets/54787343-c83a-4fb2-87ed-89effe7c07cf)
+![](https://github.com/user-attachments/assets/54787343-c83a-4fb2-87ed-89effe7c07cf)
 
 🆚 FastAPI vs. Flask
 Let's briefly compare FastAPI with another popular Python web framework, Flask:
