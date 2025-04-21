@@ -293,3 +293,7 @@ Let's briefly compare FastAPI with another popular Python web framework, Flask:
 | **Adoption**           | Rapidly growing                             | Very popular, large community                 |
 | **Data Validation**    | Built-in with Pydantic                      | Requires manual or external validation        |
 
+---
+
+📂 **For full code access, refer to [this repo here](https://github.com/your-username/your-repo-name)**.
+
