@@ -30,6 +30,7 @@ In Python, you can assign any type of value to a variable without needing to dec
 ### ⚠️ The Problem with Dynamic Typing 
 With dynamic typing, it becomes easier to accidentally create invalid objects or pass incorrect types to functions. This can introduce bugs that are difficult to detect during development. As the size and complexity of the project grow, keeping track of types manually becomes unwieldy.
 
+---
 
 ## 🛠️ Enter Pydantic: A Solution to Data Validation 
 Pydantic is a robust library designed to solve these challenges. It enhances Python’s dynamic typing by providing powerful data validation, type hinting, and serialization features. Today, we’ll dive into how Pydantic can help ensure your data models are validated and correctly typed with ease.
@@ -53,6 +54,8 @@ pip install pydantic
 ```
 
 Once you have Pydantic installed, you're ready to start using it for model creation and validation!
+
+---
 
 ## 🏗️ Building a Simple Model with Pydantic 
 Let’s walk through an example where we define a `User` model. This model will have three fields: `name`, `email`, and `age`. The `BaseModel` class from Pydantic will be the foundation of our model, ensuring that the fields are properly validated.
@@ -111,6 +114,7 @@ print(user.email)
 print(user.age)
 ```
 
+---
 
 ## 🧪 Data Validation
 One of the core strengths of Pydantic is its automatic data validation. When you define a model, Pydantic ensures that all the data passed into it matches the expected types. If not, it throws a clear and helpful error message.
@@ -158,6 +162,7 @@ user = User(
 
 If you pass an invalid email (like `"hello@not"`), Pydantic will raise a ValidationError. This makes it incredibly powerful when accepting user input or API data.
 
+---
 
 ## 🛠️ Custom Validation: Fine-Grained Control
 Sometimes, you need to enforce custom rules beyond basic type validation. For that, Pydantic provides the @validator decorator, which lets you define your own validation logic for any field.
@@ -186,6 +191,8 @@ user = User(
 )
 
 ```
+
+---
 
 ## 🔄 JSON Serialization and Deserialization
 
@@ -220,6 +227,7 @@ user_from_json = User.parse_raw(json_str)
 
 ```
 
+---
 
 ## 🥊 Pydantic vs Dataclasses
 
