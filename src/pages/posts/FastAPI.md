@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "🚀 Getting Started with FastAP"
+title: "Getting Started with FastAPI"
 publishedDate: 2025-02-10
 description: "Building High-Performance APIs in Python"
 author: "Nitish Kumar"
