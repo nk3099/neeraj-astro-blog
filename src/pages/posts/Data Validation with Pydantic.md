@@ -245,4 +245,4 @@ Pydantic is often compared with Python’s built-in `@dataclass`. Here’s a qui
 
 ---
 
-📂 **For full code access, refer to [this repo here](https://github.com/your-username/your-repo-name)**.
+📂 **For full code access, refer to [this repo here](https://github.com/iamheavymetalx7/fastapi-and-pydantic)**.
