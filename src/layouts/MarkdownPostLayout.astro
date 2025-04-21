@@ -58,15 +58,17 @@ const readingTime = Math.ceil((String(content)?.split(/\s+/).length || 0) / 200)
 
       <hr class="border-gray-300 my-4" />
 
-      <p class="text-lg">
-        <em>
-          Read the original blog
-          <a
-            href={frontmatter.hashnodeUrl}
-            class="text-blue-900 hover:text-blue-400 underline"
-          >here</a>.
-        </em>
-      </p>
+      {frontmatter.hashnodeUrl && (
+        <p class="text-lg">
+          <em>
+            Read the original blog
+            <a
+              href={frontmatter.hashnodeUrl}
+              class="text-blue-900 hover:text-blue-400 underline"
+            >here</a>.
+          </em>
+        </p>
+      )}
     </article>
   </div>
 </BaseLayout>
