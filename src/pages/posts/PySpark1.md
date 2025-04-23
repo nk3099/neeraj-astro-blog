@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "PySpark - Part 1 : Getting Started with PySpark"
-publishedDate: 2025-02-20
+publishedDate: 2025-02-26
 description: "PySpark - Part 1 : Getting Started with PySpark"
 author: "Nitish Kumar"
 image:
