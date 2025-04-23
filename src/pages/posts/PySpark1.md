@@ -1,4 +1,3 @@
-
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "PySpark - Part 1 : Getting Started with PySpark"
@@ -34,8 +33,6 @@ To function effectively, Spark relies on two critical components:
 
 Apache Spark is a multi-language engine designed for executing data engineering, data science, and machine learning tasks on a single node or a distributed cluster. Its seamless integration with Python, referred to as **PySpark**, makes it a popular choice among developers and data professionals.
 
----
-
 ## Understanding RDDs: The Building Blocks of Spark
 
 At the heart of Apache Spark lies the **Resilient Distributed Dataset (RDD)**, the fundamental data structure that enables Spark's distributed data processing capabilities.
@@ -63,8 +60,6 @@ Spark employs a **Directed Acyclic Graph (DAG)** to represent the sequence of op
 
 - **`reduce`**: Outputs a single aggregated value from the entire dataset.
 - **`reduceByKey`**: Outputs an aggregated result for each distinct key. For example, if there are 100 distinct keys in the input data of 1000 rows, the output will contain 100 rows.
-
----
 
 ## Commonly Used PySpark Functions
 
@@ -99,7 +94,7 @@ Spark employs a **Directed Acyclic Graph (DAG)** to represent the sequence of op
 
 Function chaining is a common and powerful approach in PySpark that allows for cleaner, more concise code. By chaining transformations and actions together, we can streamline our data processing workflows, reducing the need for intermediate steps.
 
----
+
 
 ## Understanding RDD Partitions
 
@@ -170,16 +165,13 @@ Transformations in PySpark are the foundation of data manipulation. They define 
   - `reduceByKey`
   - `groupByKey`
 
--[](https://towardsdatascience.com/wp-content/uploads/2021/11/1u69zDQgxukpRQTiZZ6Alqg-1536x784.png)
-
+![Illustration of Narrow and Wide Transformations](https://towardsdatascience.com/wp-content/uploads/2021/11/1u69zDQgxukpRQTiZZ6Alqg-1536x784.png)
 
 ### Best Practices for Wide Transformations:
 
 - Minimize the use of wide transformations as they involve costly shuffles.
 - Perform wide transformations towards the end of the data pipeline when the dataset is already narrowed down.
 
-
----
 
 ## Tasks, Jobs, and Stages in PySpark
 
