@@ -1,16 +1,16 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "Securing JSON-RPC: Locking the DMs with JWTs & API Keys"
+title: "Securing JSON-RPC: Authentication Strategies"
 publishedDate: 2025-04-25
-description: "Securing JSON-RPC: Locking the DMs with JWTs & API Keys"
+description: "Securing JSON-RPC: Authentication Strategies"
 author: "Nitish Kumar"
 image:
   url: ""
-  alt: "Securing JSON-RPC: Locking the DMs with JWTs & API Keys"
+  alt: "Securing JSON-RPC: Authentication Strategies"
 tags: ["TIL", "JavaScript", "learn-in-public","json-rpc"]
 ---
 
-You’ve slid into your server’s DMs with JSON-RPC — now it’s time to **lock them down**.
+JSON-RPC gives you elegant, direct access to server methods—but without authentication, you're essentially leaving the back door wide open. This post shows you how to implement robust security without sacrificing simplicity.
 
 This post is a security-focused follow-up to [Bharathvaj Ganesan's Introduction to JSON-RPC](https://bharathvaj.com/posts/json-rpc-uncovered/#2-create-client-and-server-files).
 
