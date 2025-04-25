@@ -1,12 +1,19 @@
 ---
+// Import the necessary components and layout
 import BlogLayoutTag from '../../components/BlogLayoutTag.astro';
+
+// Fetching all posts and generating unique tags dynamically
 export async function getStaticPaths() {
     const allPosts = Object.values(
         import.meta.glob("../posts/*.md", { eager: true }),
     );
+    
+    // Extract unique tags from the posts
     const uniqueTags = [
         ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
     ];
+    
+    // Generate paths for each tag with associated posts
     return uniqueTags.map((tag) => {
         const filteredPosts = allPosts.filter((post: any) =>
             post.frontmatter.tags.includes(tag),
@@ -17,10 +24,50 @@ export async function getStaticPaths() {
         };
     });
 }
+
+// Extract the current tag and posts from props
 const { tag } = Astro.params;
 const { posts } = Astro.props;
-const title = tag;
-const description = "";
+
+// Page title and description
+const title = `Posts tagged with "${tag}"`;
+const description = `Explore all posts related to the tag "${tag}".`;
 ---
+
 <BlogLayoutTag {title} {description} {posts} {tag}>
+
+  <!-- Section for displaying the tag page header -->
+  <section class="tag-header">
+    <h1 class="text-3xl font-bold text-center">{title}</h1>
+    <p class="text-center text-lg text-gray-600">{description}</p>
+  </section>
+
+  <!-- Section for displaying the tag cloud (list of tags) -->
+  <section class="tag-cloud my-8">
+    <h2 class="text-2xl font-semibold mb-4">All Tags</h2>
+    <div class="flex flex-wrap gap-4 justify-center">
+      {posts[0]?.frontmatter.tags.map((tag) => (
+        <a href={`/tags/${tag}`} class="text-blue-600 hover:underline">
+          {tag}
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Section for displaying posts under the current tag -->
+  <section class="tag-posts">
+    <h2 class="text-2xl font-semibold mb-4">Posts tagged with "{tag}"</h2>
+    <ul class="space-y-4">
+      {posts.map((post: any) => (
+        <li class="bg-white shadow-md rounded-lg p-4 hover:shadow-xl transition-shadow">
+          <a href={`/posts/${post.slug}`} class="text-xl font-bold text-gray-900 hover:text-blue-600">
+            {post.frontmatter.title}
+          </a>
+          <p class="text-gray-600">{post.frontmatter.description}</p>
+          <p class="text-sm text-gray-500">Published on {post.frontmatter.date}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
 </BlogLayoutTag>
