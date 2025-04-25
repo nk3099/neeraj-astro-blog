@@ -11,6 +11,11 @@ const filteredPosts = allPosts.filter(
   (post: any) => !post.frontmatter.tags?.includes("TIL")
 );
 
+// Sort filtered posts by published date (descending order)
+filteredPosts.sort((a: any, b: any) => 
+  new Date(b.frontmatter.publishedDate).getTime() - new Date(a.frontmatter.publishedDate).getTime()
+);
+
 // Extract unique tags from the filtered posts
 const uniqueTags = [
   ...new Set(filteredPosts.map((post: any) => post.frontmatter.tags).flat()),
@@ -19,7 +24,7 @@ const uniqueTags = [
 const title ="Nitish Kumar"
 ---
 
-<BaseLayout {title} >
+<BaseLayout {title}>
   <h1 class="text-3xl font-bold">📋 Posts</h1>
   <div class="italic text-zinc-500 mb-4 mt-6 flex flex-row justify-between text-lg">
     <p>
@@ -30,8 +35,6 @@ const title ="Nitish Kumar"
     </p>
   </div>
   <DashedComponent />
-
-  
 
   <!-- Posts Section -->
   <ul>
