@@ -33,7 +33,7 @@ const title ="Nitish Kumar"
   {tilPosts
     .sort((a, b) => new Date(b.frontmatter.publishedDate) - new Date(a.frontmatter.publishedDate))
     .map((post: any) => (
-      <li class="mb-4" key={post.frontmatter.slug}>
+      <li key={post.frontmatter.slug}>
         <div class="flex flex-row gap-6 text-lg">
           <p>
             {new Date(post.frontmatter.publishedDate).toLocaleDateString("en-us", {
