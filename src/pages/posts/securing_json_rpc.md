@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Securing JSON-RPC: Locking the DMs with JWTs & API Keys"
-publishedDate: 2025-02-10
+publishedDate: 2025-04-25
 description: "Securing JSON-RPC: Locking the DMs with JWTs & API Keys"
 author: "Nitish Kumar"
 image:
