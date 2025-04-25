@@ -12,7 +12,7 @@ tags: ["TIL", "JavaScript", "learn-in-public","json-rpc"]
 
 JSON-RPC gives you elegant, direct access to server methods—but without authentication, you're essentially leaving the back door wide open. This post shows you how to implement robust security without sacrificing simplicity.
 
-This post is a security-focused follow-up to [Bharathvaj Ganesan's Introduction to JSON-RPC](https://bharathvaj.com/posts/json-rpc-uncovered/#2-create-client-and-server-files).
+This post is a security-focused follow-up to [Bharathvaj Ganesan's Introduction to JSON-RPC](https://bharathvaj.com/posts/json-rpc-uncovered/).
 
 ## What You'll Learn
 
@@ -23,7 +23,7 @@ In this tutorial, we'll enhance a basic JSON-RPC implementation by adding two au
 We'll maintain JSON-RPC's elegant simplicity while adding the security layer necessary for production environments.
 
 ### Prerequisites
-- Basic understanding of JSON-RPC (review the [original post](https://bharathvaj.com/posts/json-rpc-uncovered/#2-create-client-and-server-files) if needed)
+- Basic understanding of JSON-RPC (review the [original post](https://bharathvaj.com/posts/json-rpc-uncovered/) if needed)
 - Familiarity with Node.js and Express
 - Understanding of authentication concepts
 ## ⚡ Quick Recap: What’s JSON-RPC Again?
