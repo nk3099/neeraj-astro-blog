@@ -382,6 +382,6 @@ JWT for deeper user-based logic.
 
 
 ## 🙌 Big Shoutout
-This post builds on an awesome intro to JSON-RPC written by (Bharathvaj Ganesan)[https://bharathvaj.com/]. Go check it out — it’s lighthearted, informative, and rpc-licious.
+This post builds on an awesome intro to JSON-RPC written by [Bharathvaj Ganesan](https://bharathvaj.com/). Go check it out — it’s lighthearted, informative, and rpc-licious.
 
 Let’s keep rpc-king it. 👑
