@@ -1,11 +1,20 @@
-## Securing JSON-RPC: Locking the DMs with JWTs & API Keys
-
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+title: "Securing JSON-RPC: Locking the DMs with JWTs & API Keys"
+publishedDate: 2025-02-10
+description: "Securing JSON-RPC: Locking the DMs with JWTs & API Keys"
+author: "Nitish Kumar"
+image:
+  url: ""
+  alt: "Securing JSON-RPC: Locking the DMs with JWTs & API Keys"
+tags: ["TIL", "JavaScript", "learn-in-public","json-rpc"]
+---
 
 You’ve slid into your server’s DMs with JSON-RPC — now it’s time to **lock them down**.
 
 This post is a security-focused follow-up to [Bharathvaj Ganesan's Introduction to JSON-RPC](https://bharathvaj.com/posts/json-rpc-uncovered/#2-create-client-and-server-files).
 
-### What You'll Learn
+## What You'll Learn
 
 In this tutorial, we'll enhance a basic JSON-RPC implementation by adding two authentication methods:
 - **API Key Authentication**: Simple and effective for service-to-service communication
@@ -152,7 +161,7 @@ if (authHeader?.startsWith("Bearer ")) {
 }
 ```
 
-### 🧪 Bonus: Support Both API Key & JWT
+## 🧪 Bonus: Support Both API Key & JWT
 
 The best approach is often to support multiple authentication methods. Our server already does this with a unified authentication middleware:
 
