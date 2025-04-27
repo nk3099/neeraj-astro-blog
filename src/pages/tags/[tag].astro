@@ -37,37 +37,51 @@ const description = `Explore all posts related to the tag "${tag}".`;
 <BlogLayoutTag {title} {description} {posts} {tag}>
 
   <!-- Section for displaying the tag page header -->
-  <section class="tag-header">
-    <h1 class="text-3xl font-bold text-center">{title}</h1>
-    <p class="text-center text-lg text-gray-600">{description}</p>
+  <section class="tag-header text-center py-8 bg-gray-100 rounded-lg">
+    <h1 class="text-4xl font-extrabold text-gray-900">{title}</h1>
+    <p class="mt-4 text-lg text-gray-700">{description}</p>
   </section>
 
   <!-- Section for displaying the tag cloud (list of tags) -->
-  <section class="tag-cloud my-8">
-    <h2 class="text-2xl font-semibold mb-4">All Tags</h2>
-    <div class="flex flex-wrap gap-4 justify-center">
-      {posts[0]?.frontmatter.tags.map((tag) => (
-        <a href={`/tags/${tag}`} class="text-blue-600 hover:underline">
+  <section class="tag-cloud my-12">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">All Tags</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      {posts[0]?.frontmatter.tags.map((tag: any) => (
+        <a 
+          href={`/tags/${tag}`} 
+          class="block px-4 py-2 bg-blue-100 text-blue-800 font-medium text-center rounded-lg hover:bg-blue-200 transition"
+          aria-label={`Explore posts with the tag ${tag}`}
+        >
           {tag}
         </a>
       ))}
     </div>
   </section>
 
-  <!-- Section for displaying posts under the current tag -->
-  <section class="tag-posts">
-    <h2 class="text-2xl font-semibold mb-4">Posts tagged with "{tag}"</h2>
-    <ul class="space-y-4">
-      {posts.map((post: any) => (
-        <li class="bg-white shadow-md rounded-lg p-4 hover:shadow-xl transition-shadow">
-          <a href={`/posts/${post.slug}`} class="text-xl font-bold text-gray-900 hover:text-blue-600">
-            {post.frontmatter.title}
-          </a>
-          <p class="text-gray-600">{post.frontmatter.description}</p>
-          <p class="text-sm text-gray-500">Published on {post.frontmatter.date}</p>
-        </li>
-      ))}
-    </ul>
-  </section>
-
+  <!-- Fallback for no posts -->
+  {posts.length === 0 ? (
+    <section class="text-center py-12">
+      <p class="text-lg text-gray-600">No posts found for this tag. Please check back later!</p>
+    </section>
+  ) : (
+    <!-- Section for displaying posts under the current tag -->
+    <section class="tag-posts">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Posts tagged with "{tag}"</h2>
+      <ul class="space-y-6">
+        {posts.map((post: any) => (
+          <li class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
+            <a 
+              href={`/posts/${post.slug}`} 
+              class="text-2xl font-bold text-gray-900 hover:text-blue-600"
+              aria-label={`Read post titled ${post.frontmatter.title}`}
+            >
+              {post.frontmatter.title}
+            </a>
+            <p class="mt-2 text-gray-700">{post.frontmatter.description}</p>
+            <p class="mt-4 text-sm text-gray-500">Published on {post.frontmatter.date}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 </BlogLayoutTag>

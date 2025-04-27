@@ -9,9 +9,10 @@ image:
   alt: "Getting Started with PySpark"
 tags: ["Python", "PySpark"]
 ---
+
 This is the first blog in my PySpark learning journey, where I explore the foundational concepts of Spark, RDDs, and key PySpark functions. From understanding transformations to working with higher-order functions and partitioning, this blog serves as an introduction to the core building blocks of Spark and PySpark.
 
-## Exploring Apache Spark and PySpark
+### Exploring Apache Spark and PySpark
 
 Apache Spark is a powerful, plug-and-play compute engine designed for distributed processing. Whether you're dealing with massive datasets or building scalable machine learning models, Spark offers the tools and flexibility required for high-performance data processing.
 
@@ -20,6 +21,7 @@ Apache Spark is a powerful, plug-and-play compute engine designed for distribute
 To function effectively, Spark relies on two critical components:
 
 1. **Storage**: This can range from distributed file systems like HDFS to cloud-based solutions like:
+
    - Azure Data Lake Storage (ADLS Gen2)
    - Amazon S3
    - Google Cloud Storage
@@ -48,7 +50,7 @@ Spark employs a **Directed Acyclic Graph (DAG)** to represent the sequence of op
 
 ### Higher-Order Functions in PySpark
 
-**Higher-order functions** are an essential concept in PySpark and functional programming. These are functions that can take another function as a parameter or return a function as output. 
+**Higher-order functions** are an essential concept in PySpark and functional programming. These are functions that can take another function as a parameter or return a function as output.
 
 #### Examples of Higher-Order Functions in PySpark
 
@@ -63,23 +65,28 @@ Spark employs a **Directed Acyclic Graph (DAG)** to represent the sequence of op
 
 ### Commonly Used PySpark Functions
 
-1. **`map`**: 
+1. **`map`**:
+
    - **Behavior**: Number of output rows equals the number of input rows.
    - **Usage**: Transform each row in the dataset.
 
-2. **`reduce`**: 
+2. **`reduce`**:
+
    - **Behavior**: Aggregates all rows into a single output value.
    - **Usage**: Compute totals, averages, or any aggregate result over the entire dataset.
 
 3. **`reduceByKey`**:
+
    - **Behavior**: Number of output rows equals the number of distinct keys.
    - **Example**: If the input dataset contains 1000 rows with 100 unique keys, the output will have 100 rows.
 
 4. **`filter`**:
+
    - **Behavior**: Filters rows based on a condition. Number of output rows is less than or equal to the number of input rows.
    - **Usage**: Narrow down the dataset based on specific criteria.
 
 5. **`sortBy` / `sortByKey`**:
+
    - **`sortBy`**: Sorts rows based on values in ascending (default) or descending order.
    - **`sortByKey`**: Sorts rows based on keys.
    - **Behavior**: Number of output rows equals the number of input rows.
@@ -91,8 +98,6 @@ Spark employs a **Directed Acyclic Graph (DAG)** to represent the sequence of op
 ### Chaining Functions in PySpark
 
 Function chaining is a common and powerful approach in PySpark that allows for cleaner, more concise code. By chaining transformations and actions together, we can streamline our data processing workflows, reducing the need for intermediate steps.
-
-
 
 ### Understanding RDD Partitions
 
@@ -107,19 +112,25 @@ words = ("Nitish", "kumar", "nkumar37", "ipl", "football", "cricket")
 words_rdd = spark.sparkContext.parallelize(words)
 print(words_rdd.getNumPartitions())  # Output: 2
 ```
+
 #### Default Partitioning Properties
+
 1. defaultMinPartitions: Determines the minimum number of partitions Spark will create for an RDD.
+
 - Accessed via spark.SparkContext.defaultMinPartitions.
 
 2. defaultParallelism: Indicates the number of default tasks that can run in parallel.
+
 - Accessed via spark.SparkContext.defaultParallelism.
 
 ### Choosing Between countByValue and reduceByKey
+
 #### What is countByValue?
+
 countByValue is an action in PySpark that combines the functionality of map and reduceByKey into a single step. It aggregates data and returns the count of each unique value.
 
-
 #### When to Use countByValue vs reduceByKey
+
 1. countByValue:
 
 - Captures the output on a local (gateway) node.
@@ -133,10 +144,10 @@ countByValue is an action in PySpark that combines the functionality of map and 
 - Ideal when further parallel processing is necessary.
 
 #### Decision Guide:
+
 Use `map + reduceByKey` if you plan to perform additional parallel processing.
 
 Use `countByValue` for final results where no further transformations are required.
-
 
 ### Categories of Transformations
 
@@ -170,7 +181,6 @@ Transformations in PySpark are the foundation of data manipulation. They define 
 - Minimize the use of wide transformations as they involve costly shuffles.
 - Perform wide transformations towards the end of the data pipeline when the dataset is already narrowed down.
 
-
 ### Tasks, Jobs, and Stages in PySpark
 
 The execution model in PySpark is designed for distributed computation and is broken down into three key components: tasks, jobs, and stages.
@@ -196,17 +206,11 @@ The execution model in PySpark is designed for distributed computation and is br
   - The number of stages equals the number of wide operations plus one.
   - A new stage is created whenever a wide transformation (e.g., `reduceByKey`) is encountered.
 
-
 ---
 
-In the next blog, I will dive into concepts such as Spark joins, broadcast joins, the differences between repartition and coalesce, and higher-level APIs in Apache Spark, including DataFrames. 
-
-
+In the next blog, I will dive into concepts such as Spark joins, broadcast joins, the differences between repartition and coalesce, and higher-level APIs in Apache Spark, including DataFrames.
 
 References:
+
 1. https://towardsdatascience.com/6-recommendations-for-optimizing-a-spark-job-5899ec269b4b/
 2. https://medium.com/@diehardankush/what-are-job-stage-and-task-in-apache-spark-2fc0d326c15f
-
-
-
-
