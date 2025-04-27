@@ -16,36 +16,41 @@ Let’s explore the concept of dynamic typing in Python and how it contrasts wit
 
 **🧐 Dynamic Typing vs Static Typing**
 Python (Dynamic Typing):
-```python 
+
+```python
 x = 10
 ```
 
 C++ (Static Typing):
+
 ```c++
 int x = 10;
 ```
+
 In Python, you can assign any type of value to a variable without needing to declare the type explicitly. This gives you flexibility, but as your application grows larger, it becomes increasingly difficult to track what type a variable should be. This issue is especially prominent when working with function arguments.
 
+#### ⚠️ The Problem with Dynamic Typing
 
-### ⚠️ The Problem with Dynamic Typing 
 With dynamic typing, it becomes easier to accidentally create invalid objects or pass incorrect types to functions. This can introduce bugs that are difficult to detect during development. As the size and complexity of the project grow, keeping track of types manually becomes unwieldy.
 
 ---
 
-## 🛠️ Enter Pydantic: A Solution to Data Validation 
+### 🛠️ Enter Pydantic: A Solution to Data Validation
+
 Pydantic is a robust library designed to solve these challenges. It enhances Python’s dynamic typing by providing powerful data validation, type hinting, and serialization features. Today, we’ll dive into how Pydantic can help ensure your data models are validated and correctly typed with ease.
 
 Pydantic is widely used by some of the top tech companies, making it a powerful tool in modern Python applications. Let’s look at how it helps with data validation and how you can start using it effectively.
 
-### 🌟 Key Benefits of Pydantic 
+#### 🌟 Key Benefits of Pydantic
+
 1. Type Hints: Pydantic ensures type safety by enforcing types on the fields of data models.
 
 2. Data Validation: It validates data automatically when you create model instances, ensuring correctness.
 
 3. JSON Serialization: Pydantic models can easily be serialized into JSON, making it simple to work with APIs and other data formats.
 
+#### 📦 Installing Pydantic
 
-### 📦 Installing Pydantic 
 To get started with Pydantic, you’ll first need to install it in your Python environment. You can do this by running the following command:
 
 ```bash
@@ -57,10 +62,12 @@ Once you have Pydantic installed, you're ready to start using it for model creat
 
 ---
 
-## 🏗️ Building a Simple Model with Pydantic 
+### 🏗️ Building a Simple Model with Pydantic
+
 Let’s walk through an example where we define a `User` model. This model will have three fields: `name`, `email`, and `age`. The `BaseModel` class from Pydantic will be the foundation of our model, ensuring that the fields are properly validated.
 
 **Defining a Model**
+
 ```python
 from pydantic import BaseModel
 
@@ -70,6 +77,7 @@ class User(BaseModel):
     age: int
 
 ```
+
 In the code above, we define a User model where:
 
 - `name` is a string
@@ -78,8 +86,8 @@ In the code above, we define a User model where:
 
 With Pydantic, you don’t just define the structure of the model; it also takes care of validating the types of the attributes. Now, let’s move on to creating an instance of this model.
 
+#### 🧱 Creating an Instance of the Model
 
-###  🧱  Creating an Instance of the Model
 You can create an instance of the User model by passing the values directly:
 
 ```python
@@ -90,6 +98,7 @@ user = User(
 )
 
 ```
+
 Alternatively, if you have data coming from an API or a dictionary, you can easily unpack it to create the model instance:
 
 ```python
@@ -103,9 +112,11 @@ user_data = {
 user = User(**user_data)
 
 ```
+
 This approach is incredibly useful when working with responses from APIs, as you can directly pass the data to the model, and Pydantic will ensure that the data is validated against the model’s schema.
 
-### 🔑 Accessing Model Attributes 
+#### 🔑 Accessing Model Attributes
+
 Once the model instance is created, you can access its attributes like this:
 
 ```python
@@ -116,7 +127,8 @@ print(user.age)
 
 ---
 
-## 🧪 Data Validation
+### 🧪 Data Validation
+
 One of the core strengths of Pydantic is its automatic data validation. When you define a model, Pydantic ensures that all the data passed into it matches the expected types. If not, it throws a clear and helpful error message.
 
 Let’s see an example:
@@ -140,7 +152,8 @@ user = User(
 
 ```
 
-### 📧 Validating Email with EmailStr
+#### 📧 Validating Email with EmailStr
+
 Pydantic offers built-in types for common validations. For instance, you can validate whether a string is a valid email address using the `EmailStr` type.
 
 ```python
@@ -164,7 +177,8 @@ If you pass an invalid email (like `"hello@not"`), Pydantic will raise a Validat
 
 ---
 
-## 🛠️ Custom Validation: Fine-Grained Control
+### 🛠️ Custom Validation: Fine-Grained Control
+
 Sometimes, you need to enforce custom rules beyond basic type validation. For that, Pydantic provides the @validator decorator, which lets you define your own validation logic for any field.
 
 Here’s an example where we ensure that age must be positive:
@@ -194,7 +208,7 @@ user = User(
 
 ---
 
-## 🔄 JSON Serialization and Deserialization
+### 🔄 JSON Serialization and Deserialization
 
 Pydantic models can be easily converted to and from JSON, which is a massive plus when working with APIs or storing structured data.
 
@@ -207,7 +221,6 @@ user_to_json = user.json()
 print(user_to_json)
 
 ```
-
 
 **➡️ Model to Python Dictionary**
 
@@ -229,17 +242,16 @@ user_from_json = User.parse_raw(json_str)
 
 ---
 
-## 🥊 Pydantic vs Dataclasses
+### 🥊 Pydantic vs Dataclasses
 
 Pydantic is often compared with Python’s built-in `@dataclass`. Here’s a quick comparison to show what sets them apart:
 
-| Feature           | ✅ Pydantic         | 🟡 Dataclass     |
-|-------------------|---------------------|------------------|
-| Type Hints        | ✅ Supported        | ✅ Supported     |
-| Data Validation   | ✅ Built-in         | ❌ Manual        |
-| Serialization     | ✅ Out of the box   | ⚠️ Manual        |
-| Built-in Module   | ❌ (Third-party)    | ✅ Built-in      |
-
+| Feature         | ✅ Pydantic       | 🟡 Dataclass |
+| --------------- | ----------------- | ------------ |
+| Type Hints      | ✅ Supported      | ✅ Supported |
+| Data Validation | ✅ Built-in       | ❌ Manual    |
+| Serialization   | ✅ Out of the box | ⚠️ Manual    |
+| Built-in Module | ❌ (Third-party)  | ✅ Built-in  |
 
 > 🧠 While dataclasses are great for lightweight data containers, Pydantic is the go-to choice when you need robust validation, serialization, and clearer error handling.
 

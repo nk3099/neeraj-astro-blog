@@ -10,23 +10,20 @@ image:
 tags: ["TIL", "Python", "learn-in-public"]
 ---
 
-
-
-
 FastAPI is a modern, fast (high-performance), web framework for building APIs with Python. It’s based on standard Python type hints and is designed for building robust, production-ready web applications quickly and efficiently.
 
-## ✨ Why Choose FastAPI?
+### ✨ Why Choose FastAPI?
 
 Before we dive into the code, let's quickly touch upon why FastAPI is gaining so much popularity:
 
-*   **Easy to Learn:**  FastAPI's intuitive design and clear documentation make it accessible to developers of all levels.
-*   **Rapid Development:**  The framework's features, like automatic data validation and interactive documentation, significantly accelerate the development process.
-*   **High Performance:**  Built on top of Starlette and Pydantic, FastAPI delivers impressive speed and efficiency.
-*   **Asynchronous by Default:** FastAPI embraces asynchronous programming, allowing you to handle multiple requests concurrently with ease.
+- **Easy to Learn:** FastAPI's intuitive design and clear documentation make it accessible to developers of all levels.
+- **Rapid Development:** The framework's features, like automatic data validation and interactive documentation, significantly accelerate the development process.
+- **High Performance:** Built on top of Starlette and Pydantic, FastAPI delivers impressive speed and efficiency.
+- **Asynchronous by Default:** FastAPI embraces asynchronous programming, allowing you to handle multiple requests concurrently with ease.
 
 ---
 
-## 🛠️ Installation
+### 🛠️ Installation
 
 Getting started with FastAPI is a breeze. You'll need to install both FastAPI and Uvicorn, the ASGI server that powers FastAPI applications:
 
@@ -37,7 +34,8 @@ pip install uvicorn
 
 ---
 
-## 🕹️ Your First FastAPI Application
+### 🕹️ Your First FastAPI Application
+
 Let's start with the classic "Hello, World!" example to see FastAPI in action:
 
 ```python
@@ -60,7 +58,8 @@ Explanation:
 
 ---
 
-## 🏃‍♂️ Running Your Server
+### 🏃‍♂️ Running Your Server
+
 To run your FastAPI application, navigate to your project directory in the terminal and execute the following command:
 
 ```bash
@@ -85,11 +84,13 @@ INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     127.0.0.1:50732 - "GET / HTTP/1.1" 200 OK
 ```
+
 You can now access your application by opening http://127.0.0.1:8000 in your browser.
 
 ---
 
-## ➕ Adding More Routes
+### ➕ Adding More Routes
+
 Now that we have a basic setup, let's expand our application by adding more routes. We will create a simple to-do list.
 
 ```python
@@ -124,6 +125,7 @@ You can test this endpoint by sending a POST request using curl in your terminal
 curl -X POST -H "Content-Type: application/json" 'http://127.0.0.1:8000/items?item=apple'
 
 ```
+
 This command sends a POST request to /items with the query parameter item set to "apple".
 
 **Retrieving Items**
@@ -145,7 +147,6 @@ Explanation:
 - We use the item_id to access the corresponding item from the items list.
 - The item is then returned.
 - Note: since every time you reload, the items list will be empty, make sure to add items to items list before running this.
-
 
 **Handling Errors**
 
@@ -174,7 +175,7 @@ Explanation:
 
 ---
 
-## 🛣️ Request and Path Parameters
+### 🛣️ Request and Path Parameters
 
 We've already used path parameters in the `/items/{item_id}` route. Now, let's explore request parameters:
 
@@ -195,7 +196,8 @@ Even though both create_item and list_items use the same /items endpoint, they a
 
 ---
 
-## 🎨 Data Validation with Pydantic
+### 🎨 Data Validation with Pydantic
+
 FastAPI seamlessly integrates with Pydantic, a powerful library for data validation and parsing. Let's enhance our to-do list by adding data validation:
 
 ```python
@@ -224,6 +226,7 @@ def get_item(item_id: int) -> Item:
         raise HTTPException(status_code=404, detail=f"Item {item_id} not found")
 
 ```
+
 Explanation:
 
 - We import BaseModel from pydantic.
@@ -231,7 +234,7 @@ Explanation:
 - We define two attributes: text (a string) and is_done (a boolean), both with default values.
 - In the create_item function, we change the type hint for item to Item. This tells FastAPI to expect a JSON payload that conforms to the Item model.
 - In the get_item function, we now specify the response model with the response type Item .
--  You have to send the items as a json payload.
+- You have to send the items as a json payload.
 
 **Sending JSON Payloads**
 Now, when you use curl to create an item, you need to send a JSON payload:
@@ -243,7 +246,8 @@ curl -X POST -H "Content-Type: application/json" -d '{"text":"apple"}' 'http://1
 
 ---
 
-## 📤 Response Models
+### 📤 Response Models
+
 We can also use Pydantic models to define the structure of our API responses, using response_model argument.
 
 ```python
@@ -268,10 +272,12 @@ Explanation:
 
 ---
 
-## 🌐 Interactive API Documentation
+### 🌐 Interactive API Documentation
+
 One of the most impressive features of FastAPI is its automatic interactive API documentation, powered by OpenAPI.
 
 To access it, go to `http://127.0.0.1:8000/docs#/` in your browser. You'll find:
+
 - Interactive Documentation: You can try out your API endpoints directly from the browser, execute test calls.
 - Clear Endpoint Definitions: Each endpoint is clearly documented, including the expected request parameters, body, and response formats.
 - Schema Definitions: You can see the definitions of your Pydantic models.
@@ -283,17 +289,16 @@ Let's briefly compare FastAPI with another popular Python web framework, Flask:
 
 ---
 
-## Feature Comparison 📊
+### Feature Comparison 📊
 
-| Feature               | **FastAPI**                                 | **Flask**                                      |
-|-----------------------|---------------------------------------------|------------------------------------------------|
-| **Asynchronous**       | Built-in and encouraged                     | Requires external libraries                   |
-| **Ease of Use**        | Modern, intuitive, and concise              | Simple, but can become verbose                |
-| **Performance**        | High performance thanks to Starlette        | Good, but generally slower                    |
-| **Adoption**           | Rapidly growing                             | Very popular, large community                 |
-| **Data Validation**    | Built-in with Pydantic                      | Requires manual or external validation        |
+| Feature             | **FastAPI**                          | **Flask**                              |
+| ------------------- | ------------------------------------ | -------------------------------------- |
+| **Asynchronous**    | Built-in and encouraged              | Requires external libraries            |
+| **Ease of Use**     | Modern, intuitive, and concise       | Simple, but can become verbose         |
+| **Performance**     | High performance thanks to Starlette | Good, but generally slower             |
+| **Adoption**        | Rapidly growing                      | Very popular, large community          |
+| **Data Validation** | Built-in with Pydantic               | Requires manual or external validation |
 
 ---
 
 📂 **For full code access, refer to [this repo here](https://github.com/iamheavymetalx7/learn-by-building/tree/main/fastapi-and-pydantic)**.
-
