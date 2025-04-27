@@ -206,8 +206,6 @@ The execution model in PySpark is designed for distributed computation and is br
   - The number of stages equals the number of wide operations plus one.
   - A new stage is created whenever a wide transformation (e.g., `reduceByKey`) is encountered.
 
----
-
 In the next blog, I will dive into concepts such as Spark joins, broadcast joins, the differences between repartition and coalesce, and higher-level APIs in Apache Spark, including DataFrames.
 
 References:
