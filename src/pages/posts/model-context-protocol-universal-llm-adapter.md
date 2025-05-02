@@ -2,7 +2,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "MCP: The Universal Adapter for LLM Tool Calling"
-publishedDate: 2024-04-18
+publishedDate: 2025-04-18
 description: ""
 author: "Nitish Kumar"
 image:
