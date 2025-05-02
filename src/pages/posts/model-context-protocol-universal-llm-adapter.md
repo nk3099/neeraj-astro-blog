@@ -14,7 +14,7 @@ tags: ["MCP", "AI", "Python"]
 Integrating multiple LLM providers (OpenAI, Anthropic Claude, Groq, etc.) often means wrestling with inconsistent APIs. For example, OpenAI’s Chat API uses a `functions` list and returns completions in `response.choices[0].message`, whereas Claude’s API uses a `tools` list and returns an assistant message with a `content` array of blocks. Groq’s API is OpenAI-compatible and returns `tool_calls` inside `response.choices[0].message`. These differences force developers to write provider-specific parsing logic, which complicates code and hurts productivity.
 
 ### Function/Tool Schema Differences
-- **OpenAI (GPT-4/GPT-3.5)** – Defines a *functions* parameter with JSON-schema parameters. For example:
+- **OpenAI (GPT-4/GPT-3.5)** – Defines a `functions` parameter with JSON-schema parameters. For example:
 
   ```py
   functions = [{
