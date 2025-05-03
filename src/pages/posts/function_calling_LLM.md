@@ -7,7 +7,7 @@ author: "Nitish Kumar"
 image:
   url: ""
   alt: "Understanding and Implementing Function Calling with LLMs"
-tags: ["TIL", "Python", "learn-in-public", "LLM"]
+tags: ["TIL", "Python", "learn-in-public", "LLM", "Function-calling"]
 ---
 
 Large Language Models (LLMs) like OpenAI’s GPT and Groq’s LLaMA models have dramatically improved in reasoning and answering user queries.

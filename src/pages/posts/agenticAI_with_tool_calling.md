@@ -1,4 +1,15 @@
-Building an Agentic AI Chatbot for Restaurant Table Booking
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+title: "Getting Started with FastAPI"
+publishedDate: 2025-03-22
+description: "Building an Agentic AI Chatbot for Table Booking"
+author: "Nitish Kumar"
+image:
+  url: ""
+  alt: "Agentic AI"
+tags:
+  ["TIL", "Python", "learn-in-public", "Agent-AI", "Function-calling", "LLM"]
+---
 
 In today’s digital age, AI chatbots are transforming how businesses interact with their customers. Imagine being able to book a table at a busy restaurant without waiting in line or making a phone call—just by chatting with an intelligent system that handles everything for you. This blog takes you through the creation of an AI-powered chatbot designed to simplify restaurant table reservations.
 
