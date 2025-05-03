@@ -259,3 +259,5 @@ Tool use Block: id='call_p16a' input='{"reservation_name":"nk","table_name":"tab
 - For a deep dive into function calling, check out my previous blog: [Function Calling](https://nkumar37.vercel.app/posts/function_calling)
 
 - Explore the complete repository: [booking table agentic bot](https://github.com/iamheavymetalx7/learn-by-building/tree/main/agentic-ai-meeting-scheduler)
+
+<!-- Original Post : https://github.com/pixegami/claude-booking-bot -->

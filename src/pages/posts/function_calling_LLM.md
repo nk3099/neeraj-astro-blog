@@ -230,3 +230,5 @@ Function calling is a game-changer for how AI will interact with the world.
 By combining powerful reasoning of LLMs with trusted, real-time functions, you create systems that are smart, reliable, and super useful.
 
 For the complete repository, check it out [here](https://github.com/iamheavymetalx7/learn-by-building/tree/main/function-calling-python).
+
+<!-- Original Post: https://medium.com/@manojkotary/exploring-function-calling-capabilities-with-groq-a-step-by-step-guide-586ab7a165aa -->

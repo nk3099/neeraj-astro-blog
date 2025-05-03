@@ -47,3 +47,5 @@ Hashnode currently allows fetching up to 50 posts, which is sufficient for my cu
 ### 🛤️ Next Steps
 
 Moving forward, I plan to delve into form handling in Next.js, focusing on server-side validation using Zod. I'll also explore how to effectively manage form actions, which will be crucial for future projects.
+
+<!-- Original Post: Documented by myself -->

@@ -144,3 +144,5 @@ BullMQ is a powerful message queue that simplifies job processing in Node.js app
 1. [https://www.digitalocean.com/community/tutorials/how-to-handle-asynchronous-tasks-with-node-js-and-bullmq](https://www.digitalocean.com/community/tutorials/how-to-handle-asynchronous-tasks-with-node-js-and-bullmq)
 2. [https://github.com/iamheavymetalx7/Message-Queue](https://github.com/iamheavymetalx7/Message-Queue)
 3. [https://www.youtube.com/watch?v=FFrPE0vr4Dw](https://www.youtube.com/watch?v=FFrPE0vr4Dw)
+
+<!-- Original Post: Posted the references above -->

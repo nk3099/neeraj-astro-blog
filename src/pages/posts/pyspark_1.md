@@ -212,3 +212,5 @@ References:
 
 1. https://towardsdatascience.com/6-recommendations-for-optimizing-a-spark-job-5899ec269b4b/
 2. https://medium.com/@diehardankush/what-are-job-stage-and-task-in-apache-spark-2fc0d326c15f
+
+<!-- This is content is part of a course that @iamheavymetalx7 took online -->

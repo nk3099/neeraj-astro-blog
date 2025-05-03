@@ -244,3 +244,5 @@ Pydantic is often compared with Python’s built-in `@dataclass`. Here’s a qui
 > 🧠 While dataclasses are great for lightweight data containers, Pydantic is the go-to choice when you need robust validation, serialization, and clearer error handling.
 
 📂 **For full code access, refer to [this repo here](https://github.com/iamheavymetalx7/learn-by-building/tree/main/fastapi-and-pydantic)**.
+
+<!-- Original Video: https://www.youtube.com/watch?v=XIdQ6gO3Anc -->

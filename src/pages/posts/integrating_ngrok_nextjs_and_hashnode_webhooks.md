@@ -58,3 +58,5 @@ In Next.js 13+, API routes are defined within the `app/api/{folderName}/route.ts
 ### 🔮 Future Plans
 
 I’m planning to integrate a database, likely PostgreSQL with Supabase, to manage and store blog data. I will also use webhooks to keep the database updated with new posts, modifications, or deletions.
+
+<!-- Original Post: Documented by myself -->

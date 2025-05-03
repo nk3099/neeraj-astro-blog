@@ -1,4 +1,3 @@
-
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "MCP: The Universal Adapter for LLM Tool Calling"
@@ -14,6 +13,7 @@ tags: ["MCP", "AI", "Python"]
 Integrating multiple LLM providers (OpenAI, Anthropic Claude, Groq, etc.) often means wrestling with inconsistent APIs. For example, OpenAI’s Chat API uses a `functions` list and returns completions in `response.choices[0].message`, whereas Claude’s API uses a `tools` list and returns an assistant message with a `content` array of blocks. Groq’s API is OpenAI-compatible and returns `tool_calls` inside `response.choices[0].message`. These differences force developers to write provider-specific parsing logic, which complicates code and hurts productivity.
 
 ### Function/Tool Schema Differences
+
 - **OpenAI (GPT-4/GPT-3.5)** – Defines a `functions` parameter with JSON-schema parameters. For example:
 
   ```py
@@ -36,9 +36,11 @@ Integrating multiple LLM providers (OpenAI, Anthropic Claude, Groq, etc.) often 
   )
 
   ```
+
   The model’s function call is found in `response.choices[0].message.function_call` (if it chooses to call a function).
 
-- **Anthropic Claude**  – Uses a top-level `tools` array with entries `{name, description, input_schema}` in JSON Schema format. For example:
+- **Anthropic Claude** – Uses a top-level `tools` array with entries `{name, description, input_schema}` in JSON Schema format. For example:
+
   ```
   {
     "tools": [
@@ -60,6 +62,7 @@ Integrating multiple LLM providers (OpenAI, Anthropic Claude, Groq, etc.) often 
     ]
   }
   ```
+
   Claude integrates tool use into its chat flow. When Claude decides to use a tool, it returns an assistant message containing a `tool_use` block (with the tool `name` and `input`) within its `content` array.
 
 - **Groq** - Supports OpenAI-compatible tool definitions. In a Groq chat request you pass a `tools` array where each element has `"type": "function"` and a nested `"function"` spec with `name`, `description`, and `parameters`. For example:
@@ -107,6 +110,7 @@ Integrating multiple LLM providers (OpenAI, Anthropic Claude, Groq, etc.) often 
     }]
   }
   ```
+
   You’d extract the function name and arguments from `response.choices[0].message.tool_calls`.
 
 - **Claude** - Returns a single message object (no `choices` array). Its structure includes `role` and a `content` array of blocks. For example:
@@ -126,9 +130,11 @@ Integrating multiple LLM providers (OpenAI, Anthropic Claude, Groq, etc.) often 
     "stop_reason": "tool_use"
   }
   ```
+
   Here `content[1]` is a `tool_use` block with the tool name and input parameters. This is quite different from the OpenAI/Groq pattern of a `tool_calls` list.
 
 These mismatches force code like:
+
 ```python
 if provider == "openai":
     call = response.choices[0].message.get("function_call")
@@ -141,16 +147,16 @@ elif provider == "claude":
     call_block = next(b for b in blocks if b["type"] == "tool_use")
     args = call_block["input"]
 ```
+
 Such branching logic is error-prone and hard to maintain, especially as you add more models.
 
 ### Introducing Model Context Protocol (MCP)
 
 ![MCP](https://www.descope.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fxqb1f63q68s1%2F2x3R1j8peZzdnweb5m1RK3%2Fa8628561358334a605e7f291560fc7cc%2FMCP_learning_center_image_1-min__1_.png&w=1920&q=75)
 
-
 The Model Context Protocol (MCP) is an open standard designed to `unify` tool-calling and response formats across all LLMs. In MCP, tools are defined once in a standard manifest (like a JSON document) with names, schemas, etc. An LLM client then communicates with an MCP server (via JSON-RPC or HTTP) to invoke tools. Crucially, the `same protocol` works with any model or provider.
 
-According to its spec, MCP provides a “standardized interface for AI models interacting with external systems”. For example, an MCP server can expose tools, resources, and prompts, and every tool description follows the same JSON-schema format. OpenAI and Google have announced MCP support, and Anthropic built it, so all major models can use it. 
+According to its spec, MCP provides a “standardized interface for AI models interacting with external systems”. For example, an MCP server can expose tools, resources, and prompts, and every tool description follows the same JSON-schema format. OpenAI and Google have announced MCP support, and Anthropic built it, so all major models can use it.
 
 In practice, using MCP means you stop writing provider-specific parsing. For instance, you could do something like:
 
@@ -172,9 +178,10 @@ if response.functions:
 Here `response.functions` would be an MCP-standard array of function calls, no matter which LLM was used under the hood. You don’t need to check` if provider=="openai"` vs `claude` vs `groq`; MCP provides a single, unified schema for tool calls and results.
 
 #### Code Comparison: Before vs. After MCP
+
 **Without MCP (provider-specific):**
 
-```python 
+```python
 # Call model and handle tool results manually
 if provider == "openai":
     resp = openai.ChatCompletion.create(model="gpt-4", messages=messages, functions=functions)
@@ -205,10 +212,9 @@ elif provider == "groq":
 
 Each branch expects a different JSON structure (OpenAI uses `.message.function_call`, Claude uses `.content` array with type “tool_use”, Groq uses `.message.tool_calls`).
 
-
 **With MCP (unified):**
 
-```python 
+```python
 from mcp.client import ClientSession
 
 # Connect to an MCP server that knows about our tools
@@ -228,6 +234,7 @@ if response.tool_calls:
 Now there’s no if `provider==...` logic. The MCP client presents `response.tool_calls` in a standard way, and each call has `.tool` and `.arguments`. This works the same regardless of the actual LLM you’re using. The tooling (MCP manifest and server) handles the differences behind the scenes.
 
 ### Developer Productivity and Maintainability
+
 Adopting MCP brings major benefits:
 
 - Unified Schema: Define tools once in the MCP manifest; any model can use them. No more duplicating JSON schemas for OpenAI, Claude, etc.
@@ -236,8 +243,10 @@ Adopting MCP brings major benefits:
 - Future-Proof: As new models emerge, they can plug into MCP with minimal code changes on your side. Your app logic stays the same.
 - Security/Control: MCP supports fine-grained permissions and explicit consent (e.g. Claude can ask the user to allow a tool call), giving more consistent governance of tools.
 
-
 In short, MCP is like a “universal plug” for LLM tools. It eliminates the messy **“N×M” adapter problem of supporting N models and M tools**. Developers can focus on building tools and conversation logic, while MCP handles the plumbing. The result is cleaner, more maintainable code and faster development when integrating AI capabilities.
 
 ### References
+
 Official docs and examples for each provider’s tool-calling (OpenAI, Anthropic, Groq).
+
+<!-- Original Post: Documented by myself -->
