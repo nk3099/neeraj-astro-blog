@@ -1,22 +1,42 @@
 ---
+const lastUpdated = new Date().toLocaleString('en-IN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  timeZone: 'Asia/Kolkata',
+  hour12: true
+});
 ---
 <>
-<div>
-    <p class="text-lg">
-      I’m currently working as a Machine Learning Engineer at PayPal. My work
-      mostly revolves around Python and SQL, with some occasional Java. I’m
-      still figuring things out as I go, learning along the way.
-    </p>
+<div class="flex flex-col items-center justify-center w-full h-full">
   
-    <p class="mt-2 text-lg">
-      Before this, I worked as a Software Engineer at 
-      <a href="https://chargebee.com/" class="hover:text-blue-400 underline">
-        Chargebee
-      </a>
-      , where I was part of the Generative AI team. My focus was on building
-      applications with tools like Next.js, React, JavaScript, Python, and
-      APIs like OpenAI and Claude.
-    </p>
+  <h2 class="mt-4 font-semibold text-xl text-blue-400">
+    Current Work & Career Journey
+  </h2>  <p class="text-lg">
+    I’m currently a Machine Learning Engineer at PayPal, focusing on Python, SQL, and occasionally Java. 
+    I’m continuously exploring and refining my skills while learning along the way.
+  </p>
+  
+  <p class="text-lg mt-2">
+    I’m actively involved in model monitoring, where my work revolves around integrating PSI scoring and KL divergence metrics. 
+    I’m also diving into the L-infinity metric as defined by Google in Vertex AI.
+  </p>
+  
+  <p class="text-lg mt-2">
+    Additionally, I’m exploring the latest tech stack, including RAG-based approaches, function and tool calling, and studying MCP (Model Control Plane) and MCP servers.
+  </p>
+  
+  <p class="mt-4 text-lg">
+    Before PayPal, I worked as a Software Engineer at 
+    <a href="https://chargebee.com/" class="hover:text-blue-400 underline">
+      Chargebee
+    </a>, where I was part of the Generative AI team. My work involved building applications using Next.js, React, JavaScript, Python, 
+    and APIs like OpenAI and Claude.
+  </p>
+  
   
     <h2 class="mt-4 font-semibold text-xl text-blue-400">Future Plans</h2>
     <p class="mt-2 text-lg">
@@ -74,6 +94,10 @@
       but I hope it grows into something more as I keep experimenting and
       learning.
     </p>
+      <!-- Last Updated Tag -->
+  <p class="mt-4 text-sm text-gray-500">
+    Last updated on: {lastUpdated} IST
+  </p>
   </div>
-  
+
 </>
