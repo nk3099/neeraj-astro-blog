@@ -41,7 +41,7 @@ Integrating multiple LLM providers (OpenAI, Anthropic Claude, Groq, etc.) often 
 
 - **Anthropic Claude** – Uses a top-level `tools` array with entries `{name, description, input_schema}` in JSON Schema format. For example:
 
-  ```
+  ```python
   {
     "tools": [
       {
