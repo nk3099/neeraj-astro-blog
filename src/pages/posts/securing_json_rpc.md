@@ -8,6 +8,7 @@ image:
   url: ""
   alt: "Securing JSON-RPC: Authentication Strategies"
 tags: ["TIL", "JavaScript", "learn-in-public", "json-rpc"]
+featuredPost: false
 ---
 
 JSON-RPC gives you elegant, direct access to server methods—but without authentication, you're essentially leaving the back door wide open. This post shows you how to implement robust security without sacrificing simplicity.

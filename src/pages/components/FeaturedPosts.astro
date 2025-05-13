@@ -1,27 +1,42 @@
 ---
-import { featuredArticles } from '../utils/featuredArticles.ts';
+const allPosts = Object.values(
+  import.meta.glob('../posts/*.md', { eager: true })
+);
+
+console.log('ALL POSTS:', allPosts); // check this too
+
+
+
+// Filter posts where frontmatter.featuredPost === true
+const featuredArticles = allPosts
+  .filter((post: any) => post.frontmatter.featuredPost === true)
+  .sort((a: any, b: any) =>
+    new Date(b.frontmatter.publishedDate).getTime() -
+    new Date(a.frontmatter.publishedDate).getTime()
+  )
+  .slice(0, 5);
+
+  console.log('FEATURED ARTICLES:', featuredArticles); // check this too
 
 ---
 
 <div class="mt-5">
-  <h2 class="text-2xl font-semibold">&#128161 Featured Posts</h2>
+  <h2 class="text-2xl font-semibold">💡 Featured Posts</h2>
   <p class="mt-2 text-lg">
     A collection of articles that I have started writing recently.
   </p>
   <div class="text-lg">
-    {featuredArticles.map((article) =>
-      article.feature ? (
-        <ul>
-          <li class="mb-1 list-disc mx-10" key={article.label}>
-            <a
-              href={article.href}
-              class="px-2 mt-2 text-blue-400 hover:underline"
-            >
-              {article.label}
-            </a>
-          </li>
-        </ul>
-      ) : null
-    )}
+    <ul>
+      {featuredArticles.map((article: any) => (
+        <li class="mb-1 list-disc mx-10" key={article.frontmatter.title}>
+          <a
+            href={article.url}
+            class="px-2 mt-2 text-blue-400 hover:underline"
+          >
+            {article.frontmatter.title}
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </div>

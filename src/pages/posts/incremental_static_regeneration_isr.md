@@ -9,6 +9,7 @@ image:
   alt: "Transitioning from Static to Dynamic Data Fetching in Next.js"
 tags: ["TIL", "next.js", "learn-in-public"]
 hashnodeUrl: "https://nov1ce.hashnode.dev/incremental-static-regeneration-isr"
+featuredPost: false
 ---
 
 In a recent TIL post, I discussed my approach to fetching data using webhooks and storing it in JSON files. However, I encountered an issue when deploying on Vercel—specifically, a lack of write access to the file system. To resolve this, I initially considered migrating to a Postgres instance on Supabase for a more robust and accurate data retrieval mechanism.

@@ -9,6 +9,7 @@ image:
   alt: ""
 tags: ["ngrok", "next.js", "webhooks"]
 hashnodeUrl: "https://nov1ce.hashnode.dev/integrating-ngrok-hashnode-webhook-api"
+featuredPost: true
 ---
 
 In this blog post, I'll summarize the key concepts and techniques I learned while working on my "Today I Learned" (TIL) episode. This includes dynamic content fetching with Next.js, handling webhooks, and utilizing Ngrok for local development.

@@ -9,6 +9,7 @@ image:
   alt: "Agentic AI"
 tags:
   ["TIL", "Python", "learn-in-public", "Agent-AI", "Function-calling", "LLM"]
+featuredPost: false
 ---
 
 In today’s digital age, AI chatbots are transforming how businesses interact with their customers. Imagine being able to book a table at a busy restaurant without waiting in line or making a phone call—just by chatting with an intelligent system that handles everything for you. This blog takes you through the creation of an AI-powered chatbot designed to simplify restaurant table reservations.

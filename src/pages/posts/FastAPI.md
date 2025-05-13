@@ -8,6 +8,7 @@ image:
   url: ""
   alt: "Building High-Performance APIs in Python"
 tags: ["TIL", "Python", "learn-in-public"]
+featuredPost: false
 ---
 
 FastAPI is a modern, fast (high-performance), web framework for building APIs with Python. It’s based on standard Python type hints and is designed for building robust, production-ready web applications quickly and efficiently.

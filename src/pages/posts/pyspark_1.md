@@ -8,6 +8,7 @@ image:
   url: ""
   alt: "Getting Started with PySpark"
 tags: ["Python", "PySpark"]
+featuredPost: true
 ---
 
 This is the first blog in my PySpark learning journey, where I explore the foundational concepts of Spark, RDDs, and key PySpark functions. From understanding transformations to working with higher-order functions and partitioning, this blog serves as an introduction to the core building blocks of Spark and PySpark.

@@ -18,6 +18,7 @@
     "astro": "^5.4.2",
     "astro-analytics": "^2.7.0",
     "bulma": "^1.0.3",
+    "gray-matter": "^4.0.3",
     "i": "^0.3.7",
     "lucide-astro": "^0.477.0",
     "npm": "^11.2.0",
