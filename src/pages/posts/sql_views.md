@@ -2,7 +2,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "SQL Views Explained: Normal Views vs Materialized Views"
-publishedDate: 2025-05-09
+publishedDate: 2025-04-25
 description: "SQL Views Explained: Normal Views vs Materialized Views"
 author: "Nitish Kumar"
 image:
@@ -10,10 +10,7 @@ image:
   alt: "Understanding views in SQL"
 tags: ["SQL", "Big-Query"]
 ---
-
 When deciding between a **normal view** and a **materialized view**, it’s essential to weigh the trade-offs between **query performance** and **data freshness**. Each option has its strengths and is suited for specific use cases. Let’s break it down:
-
----
 
 ### 🔍 When to Use a Normal View
 
