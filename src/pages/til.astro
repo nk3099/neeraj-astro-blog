@@ -35,7 +35,7 @@ const title ="Nitish Kumar"
     .map((post: any) => (
       <li key={post.frontmatter.slug}>
         <div class="flex flex-row gap-6 text-lg">
-          <p>
+          <p class="w-32 tabular-nums">
             {new Date(post.frontmatter.publishedDate).toLocaleDateString("en-us", {
               year: "numeric",
               month: "short",

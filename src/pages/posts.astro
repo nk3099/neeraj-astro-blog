@@ -37,12 +37,12 @@ const title ="Nitish Kumar"
   <DashedComponent />
 
   <!-- Posts Section -->
-  <ul>
+<ul>
     {filteredPosts.map((post: any) => (
       <li key={post.frontmatter.slug}>
-        <div class="flex flex-row gap-6 text-lg">
-          <!-- Displaying the formatted published date -->
-          <p>
+        <div class="flex flex-row gap-6 text-lg items-baseline">
+          <!-- Displaying the formatted published date with fixed width for alignment -->
+          <p class="w-32 tabular-nums">
             {new Date(post.frontmatter.publishedDate).toLocaleDateString("en-us", {
               year: "numeric",
               month: "short",
