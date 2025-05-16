@@ -13,26 +13,26 @@ featuredPost: True
 
 > *“Why did the AI cross the road? To call a function on the other side—with MCP!”*
 
-## 🗂️ Table of Contents
+### 🗂️ Table of Contents
 
-1. [🛋️ Introduction](#introduction)
-2. [🌉 Bridging the Gap: Why MCP?](#bridging-the-gap-why-mcp)
-3. [🏢 MCP Architecture: Who Talks to Whom?](#mcp-architecture-who-talks-to-whom)
-4. [🛠️ MCP Primitives: Tools, Resources, Prompts](#mcp-primitives-tools-resources-prompts)
-5. [🔌 Transport Mechanisms: Stdio vs. SSE](#transport-mechanisms-stdio-vs-sse)
+1. [🛋️ Introduction](#🛋️-introduction)
+2. [🌉 Bridging the Gap: Why MCP?](#🌉-bridging-the-gap-why-mcp)
+3. [🏢 MCP Architecture: Who Talks to Whom?](#🏢-mcp-architecture-who-talks-to-whom)
+4. [🛠️ MCP Primitives: Tools, Resources, Prompts](#🛠️-mcp-primitives-tools-resources-prompts)
+5. [🔌 Transport Mechanisms: Stdio vs. SSE](#🔌-transport-mechanisms-stdio-vs-sse)
 6. [🧑‍💻 My Implementations](#my-implementations)
-    - [📻 1. Stdio: The “Walkie-Talkie” Approach](#1-stdio-the-walkie-talkie-approach)
-    - [🌐 2. SSE: The “Long-Distance Relationship”](#2-sse-the-long-distance-relationship)
-    - [🤖 3. LLM + Tools: The “Supercharged Chatbot”](#3-llm--tools-the-supercharged-chatbot)
-7. [📝 Practical Considerations: Should You MCP?](#practical-considerations-should-you-mcp)
-8. [🔑 Key Takeaways](#key-takeaways)
-9. [🏁 Conclusion: Is MCP for You?](#conclusion-is-mcp-for-you)
-10. [📚 Further Reading](#further-reading)
-11. [🔗 References & Further Learning](#references--further-learning)
+    - [📻 1. Stdio: The “Walkie-Talkie” Approach](#📻-1-stdio-the-walkie-talkie-approach)
+    - [🌐 2. SSE: The “Long-Distance Relationship”](#🌐-2-sse-the-long-distance-relationship)
+    - [🤖 3. LLM + Tools: The “Supercharged Chatbot”](#🤖-3-llm--tools-the-supercharged-chatbot)
+7. [📝 Practical Considerations: Should You MCP?](#📝-practical-considerations-should-you-mcp)
+8. [🔑 Key Takeaways](#🔑-key-takeaways)
+9. [🏁 Conclusion: Is MCP for You?](#🏁-conclusion-is-mcp-for-you)
+10. [📚 Further Reading](#📚-further-reading)
+11. [🔗 References & Further Learning](#🔗-references--further-learning)
 
 ---
 
-## 🛋️ Introduction
+### 🛋️ Introduction
 
 Remember when you needed a different remote for every device in your living room? One for the TV, another for the sound system, and a third for that ancient DVD player you never use? It was chaos—until the universal remote came along and saved the day.
 
@@ -40,9 +40,7 @@ The **Model Context Protocol (MCP)** is the universal remote for your AI tools. 
 
 If you’ve ever wished your LLM could just “call a friend” (or a function) without learning a new language, MCP is your answer. It’s not magic, but it *is* a standardized way for LLMs to interact with external tools and services. By the end of this post, you’ll know how to wire up your own AI tools with MCP—and maybe even retire a few remotes of your own.
 
----
-
-## 🌉 Bridging the Gap: Why MCP?
+### 🌉 Bridging the Gap: Why MCP?
 
 Let’s face it: AI agents are only as smart as the tools they can use. Imagine asking your AI to check the weather, only to get a blank stare (or worse, a hallucinated answer about “sunny with a chance of meatballs”). Frustrating, right?
 
@@ -54,9 +52,7 @@ MCP bridges the gap between your LLM and the outside world—whether that’s yo
 
 *Think of MCP as the “universal translator” for your AI’s function-calling needs. No more language barriers between your LLM and the tools you love!*
 
----
-
-## 🏢 MCP Architecture: Who Talks to Whom?
+### 🏢 MCP Architecture: Who Talks to Whom?
 
 Picture a busy office: you (the host) ask your assistant (the client) to fetch a file from the archives (the server). MCP formalizes this workflow:
 
@@ -66,13 +62,11 @@ Picture a busy office: you (the host) ask your assistant (the client) to fetch a
 - **Local Data Sources:** The “archives” (files, DBs)
 - **Remote Services:** The “vendors” (APIs, external systems)
 
-### 🧬 Under the Hood: JSON-RPC 2.0
+#### 🧬 Under the Hood: JSON-RPC 2.0
 
 MCP messages are sent using the [JSON-RPC 2.0](https://www.jsonrpc.org/specification) protocol—a lightweight, widely-used standard for remote procedure calls. This means your tools and LLMs can communicate in a predictable, language-agnostic way.
 
----
-
-## 🛠️ MCP Primitives: Tools, Resources, Prompts
+### 🛠️ MCP Primitives: Tools, Resources, Prompts
 
 - **Tools:** Like giving your LLM a Swiss Army knife—functions it can call (add numbers, fetch weather, etc.).
 - **Resources:** The context—files, DB records, or anything your LLM might need to “read up on.”
@@ -80,29 +74,25 @@ MCP messages are sent using the [JSON-RPC 2.0](https://www.jsonrpc.org/specifica
 
 *💡 Pro tip: Start with tools. They’re the easiest way to make your LLM actually “do” stuff!*
 
----
+### 🔌 Transport Mechanisms: Stdio vs. SSE
 
-## 🔌 Transport Mechanisms: Stdio vs. SSE
-
-### 📻 Stdio: The “Walkie-Talkie” Approach
+#### 📻 Stdio: The “Walkie-Talkie” Approach
 
 - **How it works:** Both client and server run locally, chatting over standard input/output.
 - **When to use:** Local dev, quick prototyping, or when you don’t want to deal with networks.
 - **Analogy:** Like passing notes in class—simple, direct, but you have to be in the same room.
 
-### 🌐 SSE: The “Long-Distance Relationship”
+#### 🌐 SSE: The “Long-Distance Relationship”
 
 - **How it works:** Client and server talk over HTTP and Server-Sent Events (SSE).
 - **When to use:** When your client and server are on different machines, or you want to scale.
 - **Analogy:** Like texting your friend across the world—reliable, works over the internet, but needs a little setup.
 
----
-
-## 🧑‍💻 My Implementations
+### 🧑‍💻 My Implementations
 
 Let’s get our hands dirty! Here’s how I actually used MCP—warts, wins, and all.
 
-### 📻 1. Stdio: The “Walkie-Talkie” Approach
+#### 📻 1. Stdio: The “Walkie-Talkie” Approach
 
 This is the “hello world” of MCP. I started with the stdio transport because, let’s be honest, who wants to debug network issues on day one?
 
@@ -124,9 +114,7 @@ Available tools:
 **Takeaway:**  
 Great for local tinkering. Like using a calculator app, but you built the calculator.
 
----
-
-### 🌐 2. SSE: The “Long-Distance Relationship”
+#### 🌐 2. SSE: The “Long-Distance Relationship”
 
 Once I got bored of talking to myself (and my computer), I tried the SSE transport. Now my client and server could live on different machines—like a distributed team, but with less coffee.
 
@@ -154,9 +142,7 @@ Available tools:
 **What’s really happening:**  
 The client connects to `/sse`, the server streams responses (and “pings” to keep the line open). It’s like a walkie-talkie, but with WiFi.
 
----
-
-### 🤖 3. LLM + Tools: The “Supercharged Chatbot” (RAG-style, No Vector DB)
+#### 🤖 3. LLM + Tools: The “Supercharged Chatbot” (RAG-style, No Vector DB)
 
 Here’s where things get spicy. I wanted my LLM to be more than a parrot—so I gave it tools and a knowledge base. No fancy vector DBs, just a humble `docs.json` file with Q&A pairs.
 
@@ -186,17 +172,13 @@ Response: According to our company's knowledge base, full-time employees are ent
 - The LLM chooses when to use its own brain vs. external knowledge.
 - It’s like RAG (Retrieval-Augmented Generation), but with a simple tool instead of a vector DB. Sometimes, simple is smart!
 
----
-
-## 📝 Practical Considerations: Should You MCP?
+### 📝 Practical Considerations: Should You MCP?
 
 - **Don’t fix what isn’t broken:** If your current function-calling setup works, don’t rush to MCP-ify everything.
 - **But…** If you’re building new projects, or want to make your tools reusable and modular, MCP is a game-changer.
 - **Start small:** Try stdio for local dev, then graduate to SSE when you’re ready to go global.
 
----
-
-## 🔑 Key Takeaways
+### 🔑 Key Takeaways
 
 - **MCP = Universal remote for your AI tools.**
 - **Stdio:** Great for local dev and prototyping.
@@ -204,25 +186,19 @@ Response: According to our company's knowledge base, full-time employees are ent
 - **LLM + Tools:** Where the magic happens—give your AI real superpowers.
 - **Don’t overcomplicate:** Sometimes a simple tool beats a fancy database.
 
----
-
-## 🏁 Conclusion: Is MCP for You?
+### 🏁 Conclusion: Is MCP for You?
 
 MCP isn’t just another buzzword—it’s a practical, powerful standard for making your LLMs actually *do* things. Whether you’re building a personal AI assistant or a production-grade agent, MCP gives you the foundation for modular, reusable, and scalable integrations.
 
 So next time your AI asks, “Can I phone a friend?”—hand it the MCP manual and watch the magic happen. 🪄
 
----
-
-## 📚 Further Reading
+### 📚 Further Reading
 
 **🔒 Security Tip:**  
 - If you’re exposing MCP endpoints, make sure to secure your JSON-RPC layer!  
 - Check out my deep dive: [Securing JSON-RPC](https://nkumar37.vercel.app/posts/securing_json_rpc)
 
----
-
-## 🔗 References & Further Learning
+### 🔗 References & Further Learning
 
 - [DeepLearning.AI - Model Context Protocol](https://learn.deeplearning.ai/courses/mcp-build-rich-context-ai-apps-with-anthropic/lesson/fkbhh/introduction)
 - [MCP Crash Course](https://www.youtube.com/watch?v=5xqFjh56AwM)
