@@ -192,11 +192,7 @@ MCP isn’t just another buzzword—it’s a practical, powerful standard for ma
 
 So next time your AI asks, “Can I phone a friend?”—hand it the MCP manual and watch the magic happen. 🪄
 
-### 📚 Further Reading
 
-**🔒 Security Tip:**  
-- If you’re exposing MCP endpoints, make sure to secure your JSON-RPC layer!  
-- Check out my deep dive: [Securing JSON-RPC](https://nkumar37.vercel.app/posts/securing_json_rpc)
 
 ### 🔗 References & Further Learning
 
@@ -204,3 +200,4 @@ So next time your AI asks, “Can I phone a friend?”—hand it the MCP manual 
 - [MCP Crash Course](https://www.youtube.com/watch?v=5xqFjh56AwM)
 - [MCP Krish Naik](https://www.youtube.com/watch?v=MDBG2MOp4Go)
 - [My Github](https://github.com/iamheavymetalx7/learn-by-building/tree/rough-branch)
+- Check out my deep dive: [Securing JSON-RPC](https://nkumar37.vercel.app/posts/securing_json_rpc)
