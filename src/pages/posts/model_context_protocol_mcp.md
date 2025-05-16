@@ -12,7 +12,7 @@ featuredPost: True
 ---
 
 > *“Why did the AI cross the road? To call a function on the other side—with MCP!”*
-
+<!-- 
 ### 🗂️ Table of Contents
 
 1. [🛋️ Introduction](#🛋️-introduction)
@@ -30,7 +30,7 @@ featuredPost: True
 10. [📚 Further Reading](#📚-further-reading)
 11. [🔗 References & Further Learning](#🔗-references--further-learning)
 
----
+--- -->
 
 ### 🛋️ Introduction
 
