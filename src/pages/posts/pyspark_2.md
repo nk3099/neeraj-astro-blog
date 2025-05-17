@@ -13,11 +13,11 @@ featuredPost: true
 
 ### Recap: PySpark Foundations
 
-In [Part 1](../posts/pyspark_1.md) of this PySpark series, we explored the basics of Apache Spark, focusing on RDDs (Resilient Distributed Datasets), transformations, actions, and the underlying execution model.
+In [Part 1](https://nkumar37.vercel.app/posts/pyspark_1) of this PySpark series, we explored the basics of Apache Spark, focusing on RDDs (Resilient Distributed Datasets), transformations, actions, and the underlying execution model.
 
 We discussed the importance of partitions, the difference between narrow and wide transformations, and how Spark jobs, stages, and tasks are orchestrated for distributed data processing.
 
-If you’re new to Spark or want a refresher on RDDs, transformations, and actions, check out the [previous post](../posts/pyspark_1.md).
+If you’re new to Spark or want a refresher on RDDs, transformations, and actions, check out the [previous post](https://nkumar37.vercel.app/posts/pyspark_1).
 
 ---
 
