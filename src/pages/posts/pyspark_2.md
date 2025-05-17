@@ -2,15 +2,18 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Part 2 - PySpark: DataFrames, Spark SQL, and Schema Management"
 publishedDate: 2025-03-06
-description: "PySpark - Part 2: Exploring DataFrames, Spark SQL, and best practices for schema management in Spark."
+description: "PySpark - Part 2"
 author: "Nitish Kumar"
-tags: ["Python", "PySpark", "DataFrames", "SparkSQL"]
+image:
+  url: ""
+  alt: "PySpark Part 2"
+tags: ["Python", "PySpark"]
 featuredPost: true
 ---
 
 ### Recap: PySpark Foundations
 
-In [Part 1](../posts/pyspark_1.md) of this PySpark series, we explored the basics of Apache Spark, focusing on RDDs (Resilient Distributed Datasets), transformations, actions, and the underlying execution model. 
+In [Part 1](../posts/pyspark_1.md) of this PySpark series, we explored the basics of Apache Spark, focusing on RDDs (Resilient Distributed Datasets), transformations, actions, and the underlying execution model.
 
 We discussed the importance of partitions, the difference between narrow and wide transformations, and how Spark jobs, stages, and tasks are orchestrated for distributed data processing.
 
@@ -49,11 +52,14 @@ df = spark.read \
     .option("inferSchema", "true") \
     .load("/path/to/your/file.csv")
 ```
+
 - SparkSession is the entry point for DataFrame and SQL functionality.
 - SparkContext is used for lower-level RDD operations.
 
 ### DataFrames and SQL Tables: Interoperability
+
 DataFrames and Spark SQL tables are interconvertible:
+
 ```python
 orders_df.createOrReplaceTempView("orders")
 ```
@@ -84,60 +90,66 @@ Spark provides several ways to register DataFrames as tables:
 - createOrReplaceGlobalTempView: Replaces any existing global view.
 
 ### Managing Databases and Tables
+
 1. Create a Database:
-    ```python
-    spark.sql("CREATE DATABASE IF NOT EXISTS my_database")
-    ```
+   ```python
+   spark.sql("CREATE DATABASE IF NOT EXISTS my_database")
+   ```
 2. Show Databases:
-    ```python
-    spark.sql("SHOW DATABASES").show()
-    ```
+   ```python
+   spark.sql("SHOW DATABASES").show()
+   ```
 3. Show Tables:
-    ```python
-    spark.sql("SHOW TABLES").show()
-    ```
+   ```python
+   spark.sql("SHOW TABLES").show()
+   ```
 
 ### DataFrame API vs Spark SQL API: Practical Examples
+
 Let’s see how common analytics tasks can be performed using both APIs.
 
 1. Top 15 Customers by Number of Orders
+
 - DataFrame API:
 
-    ```python
-    result = orders_df.groupBy("customer_id").count().sort("count", ascending=False).limit(15)
-    ```
+  ```python
+  result = orders_df.groupBy("customer_id").count().sort("count", ascending=False).limit(15)
+  ```
 
 - Spark SQL:
 
-    ```python
-    result = spark.sql("""
-        SELECT customer_id, COUNT(order_id) AS count
-        FROM orders
-        GROUP BY customer_id
-        ORDER BY count DESC
-        LIMIT 15
-    """)
-    ```
+  ```python
+  result = spark.sql("""
+      SELECT customer_id, COUNT(order_id) AS count
+      FROM orders
+      GROUP BY customer_id
+      ORDER BY count DESC
+      LIMIT 15
+  """)
+  ```
 
 2. Customers with Most Closed Orders
+
 - DataFrame API:
-    ```python
-    results = orders_df.filter("order_status = 'CLOSED'") \
-        .groupBy("customer_id").count().sort("count", ascending=False)
-    ```
+
+  ```python
+  results = orders_df.filter("order_status = 'CLOSED'") \
+      .groupBy("customer_id").count().sort("count", ascending=False)
+  ```
 
 - Spark SQL
-    ```python
-    results = spark.sql("""
-        SELECT customer_id, COUNT(order_id) AS count
-        FROM orders
-        WHERE order_status = 'CLOSED'
-        GROUP BY customer_id
-        ORDER BY count DESC
-    """)
-    ```
+  ```python
+  results = spark.sql("""
+      SELECT customer_id, COUNT(order_id) AS count
+      FROM orders
+      WHERE order_status = 'CLOSED'
+      GROUP BY customer_id
+      ORDER BY count DESC
+  """)
+  ```
 
 ### Actions, Transformations, and Utility Functions
+
 - Actions: count, show, head, tail, collect
 - Transformations: groupBy.count, orderBy, filter, distinct, join
 - Utility Functions: printSchema, createOrReplaceGlobalTempView
@@ -160,6 +172,7 @@ df.printSchema()
 ```
 
 **Drawbacks of Schema Inference:**
+
 - **Incorrect Data Types:** Spark may misinterpret column types (e.g., reading IDs as integers when they should be strings).
 - **Performance Overhead:** Inferring schema requires scanning the entire dataset, which can be slow for large files.
 - **Inconsistent Results:** Schema inference can yield different results if the data is inconsistent or contains malformed records.
@@ -205,53 +218,57 @@ df.printSchema()
 ```
 
 **Benefits of Explicit Schema:**
+
 - Guarantees correct data types and column names.
 - Avoids the overhead of scanning data for inference.
 - Makes your ETL pipelines more robust and predictable.
 
 ### DataFrame Read Modes
+
 1. permissive (default): Malformed records become NULL.
 2. failfast: Errors out on malformed records.
 3. dropMalformed: Drops malformed records.
 
-
 ### Creating DataFrames from RDDs
+
 - Approach 1:
-    ```python
-    spark.createDataFrame(rdd, schema)
-    ```
-    or
-    ```python
-    spark.createDataFrame(rdd).toDF(*list_of_column_names)
-    ```
+
+  ```python
+  spark.createDataFrame(rdd, schema)
+  ```
+
+  or
+
+  ```python
+  spark.createDataFrame(rdd).toDF(*list_of_column_names)
+  ```
 
 - Approach 2:
-    ```
-    rdd.toDF(schema)
-    ```
+  ```
+  rdd.toDF(schema)
+  ```
 
 ### Dataframe Transformations
 
-| Transformations       | Description                                         | Syntax                                                                                              |
-|-----------------------|-----------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| 1. withColumn         | To add a new Column or change existing column       | `df2 = df1.select("<list-of-column-names>", expr("<expression>"))`  <br> or <br> `df2 = df1.selectExpr("<list-of-column-names-and-expressions>")` |
-| 2. withColumnRenamed  | To rename an existing Column                        | `df2 = df1.withColumnRenamed("<existing-column-names>", "<new-column-name>")`                      |
-| 3. drop               | To drop a Column                                    | `df2 = df1.drop("<list-of-column-names>")`                                                          |
-
+| Transformations      | Description                                   | Syntax                                                                                                                                           |
+| -------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1. withColumn        | To add a new Column or change existing column | `df2 = df1.select("<list-of-column-names>", expr("<expression>"))` <br> or <br> `df2 = df1.selectExpr("<list-of-column-names-and-expressions>")` |
+| 2. withColumnRenamed | To rename an existing Column                  | `df2 = df1.withColumnRenamed("<existing-column-names>", "<new-column-name>")`                                                                    |
+| 3. drop              | To drop a Column                              | `df2 = df1.drop("<list-of-column-names>")`                                                                                                       |
 
 Note:
+
 - In case of “select” we will have to explicitly segregate the column
-names and expressions and mention the expressions used within
-an expr.
+  names and expressions and mention the expressions used within
+  an expr.
 - In case of “selectExpr”, it automatically identifies whether the
-value passed is a column name or an expression and accordingly
-actions it.
+  value passed is a column name or an expression and accordingly
+  actions it.
 
 ### Removing Duplicates
 
 - `df2 = df1.distinct()` — removes duplicates across all columns.
 - `df2 = df1.dropDuplicates(["col1", "col2"])` — removes duplicates based on specific columns.
-
 
 ### What’s Next? (Coming in Part 3)
 
