@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "Part 1 - PySpark : Getting Started"
+title: "Part 1 - PySpark: RDDs, Transformations, and the Spark Execution Model"
 publishedDate: 2025-02-26
 description: "PySpark - Part 1 : Getting Started with PySpark"
 author: "Nitish Kumar"
