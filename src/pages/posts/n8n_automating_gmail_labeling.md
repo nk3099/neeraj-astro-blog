@@ -32,7 +32,7 @@ The goal of this project was to:
 
 Here’s a snapshot of the workflow in action:
 
-![n8n Gmail Workflow](https://github.com/iamheavymetalx7/learn-by-building/blob/main/n8n-gmail-automation/Capture-2025-05-25-160902.png)
+![n8n Gmail Workflow](https://raw.githubusercontent.com/iamheavymetalx7/learn-by-building/main/n8n-gmail-automation/Capture-2025-05-25-160902.png)
 
 ### 🔧 Nodes Used in the Workflow
 
