@@ -32,7 +32,7 @@ The goal of this project was to:
 
 Here’s a snapshot of the workflow in action:
 
-![n8n Gmail Workflow](https://github.com/user-attachments/assets/acab9d17-055b-4768-9655-21954c833eac)
+![n8n Gmail Workflow](https://github.com/iamheavymetalx7/learn-by-building/blob/main/n8n-gmail-automation/Capture-2025-05-25-160902.png)
 
 ### 🔧 Nodes Used in the Workflow
 
@@ -93,3 +93,7 @@ Using an LLM (via Groq) allows for a context-aware, semantic classification. It�
 This was a great exercise in blending **no-code automation** with **AI-powered decision-making**. The flexibility n8n provides allows you to scale such workflows into business-grade systems effortlessly.
 
 If you're drowning in email or looking for a smart assistant to triage your inbox, give this a try!
+
+### References
+
+[Github Repo](https://github.com/iamheavymetalx7/learn-by-building/tree/main/n8n-gmail-automation)
