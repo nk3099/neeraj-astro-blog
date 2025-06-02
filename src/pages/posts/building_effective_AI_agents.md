@@ -169,5 +169,6 @@ Agents are ideal for open-ended problems where the number of steps can’t be pr
 
 ### References:
 
-1. ![Anthropic's Guide on Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
-1. ![Blog on Building Effective Agents](https://breakintodata.beehiiv.com/p/build-effective-agents-with-openai-agents-sdk?_bhlid=9ec25f4367319043ec109068042ad064aba53f1c&utm_campaign=ai-product-engineer-day-2&utm_medium=newsletter&utm_source=breakintodata.beehiiv.com)
+1. [Anthropic's Guide on Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
+
+1. [Blog on Building Effective Agents](https://breakintodata.beehiiv.com/p/build-effective-agents-with-openai-agents-sdk?_bhlid=9ec25f4367319043ec109068042ad064aba53f1c&utm_campaign=ai-product-engineer-day-2&utm_medium=newsletter&utm_source=breakintodata.beehiiv.com)
