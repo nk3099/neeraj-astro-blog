@@ -57,7 +57,11 @@ From my notes and [DataCamp](https://www.datacamp.com/tutorial/how-transformers-
 
 ---
 
-![Encoder-Decoder Architecture](https://github-production-user-asset-6210df.s3.amazonaws.com/52539396/462926716-39c22fdf-99df-4ee6-a8f0-4d696402cf7f.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250706T143011Z&X-Amz-Expires=300&X-Amz-Signature=b1a5989175c1fbd27da291cb592e3ea8115a98701bdfccd75d3536b87e8d37eb&X-Amz-SignedHeaders=host)
+<img 
+  src="https://github-production-user-asset-6210df.s3.amazonaws.com/52539396/462926716-39c22fdf-99df-4ee6-a8f0-4d696402cf7f.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250706T143011Z&X-Amz-Expires=300&X-Amz-Signature=b1a5989175c1fbd27da291cb592e3ea8115a98701bdfccd75d3536b87e8d37eb&X-Amz-SignedHeaders=host" 
+  alt="Encoder-Decoder Architecture"
+  width="500"
+/>
 
 ### 🧩 The Core: Self-Attention and Q, K, V
 
@@ -165,7 +169,11 @@ After multi-head attention, each layer includes:
 
 - **Layer normalization** and **residual connections** to stabilize and speed up training.
 
-## ![Transformer Architecture](https://github-production-user-asset-6210df.s3.amazonaws.com/52539396/462926728-3ac58011-4f95-41d8-a6f3-4a17e2697ac4.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250706T143110Z&X-Amz-Expires=300&X-Amz-Signature=9120d7a841f374c865445ddbfa51eb670feec3f33a06d580f24a74b627483efc&X-Amz-SignedHeaders=host)
+<img 
+  src="https://github-production-user-asset-6210df.s3.amazonaws.com/52539396/462926728-3ac58011-4f95-41d8-a6f3-4a17e2697ac4.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250706T143110Z&X-Amz-Expires=300&X-Amz-Signature=9120d7a841f374c865445ddbfa51eb670feec3f33a06d580f24a74b627483efc&X-Amz-SignedHeaders=host" 
+  alt="Transformer Architecture"
+  width="500"
+/>
 
 ### 🪄 Putting It All Together
 
