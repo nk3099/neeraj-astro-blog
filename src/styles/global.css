@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.prose img {
+  @apply w-64 mx-auto; /* adjust w-64 (16rem) as needed */
+}
