@@ -57,7 +57,7 @@ From my notes and [DataCamp](https://www.datacamp.com/tutorial/how-transformers-
 
 ---
 
-![Encoder-Decoder Architecture](https://github-production-user-asset-6210df.s3.amazonaws.com/52539396/462926716-39c22fdf-99df-4ee6-a8f0-4d696402cf7f.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250706T143011Z&X-Amz-Expires=300&X-Amz-Signature=b1a5989175c1fbd27da291cb592e3ea8115a98701bdfccd75d3536b87e8d37eb&X-Amz-SignedHeaders=host)
+![Encoder-Decoder Architecture](https://private-user-images.githubusercontent.com/52539396/462929815-2753482a-4cf8-497b-9eaf-8b349b1773fa.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTE4MTM4MTEsIm5iZiI6MTc1MTgxMzUxMSwicGF0aCI6Ii81MjUzOTM5Ni80NjI5Mjk4MTUtMjc1MzQ4MmEtNGNmOC00OTdiLTllYWYtOGIzNDliMTc3M2ZhLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA3MDYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNzA2VDE0NTE1MVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWZjM2E3MmRhNzUyYzUwZGI3NTQ3N2M0MGQ0ZjIwYThiZTc3NjMzNDVjYTE3OGQ1MzU5ZTc0NmUxNThkZTM3MjAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.-uXuI4FNKQRvWES58LWlIQKjpIEBdMzAabUbS9wP2bA)
 
 ### 🧩 The Core: Self-Attention and Q, K, V
 
@@ -165,7 +165,7 @@ After multi-head attention, each layer includes:
 
 - **Layer normalization** and **residual connections** to stabilize and speed up training.
 
-## ![Transformer Architecture](https://github-production-user-asset-6210df.s3.amazonaws.com/52539396/462926728-3ac58011-4f95-41d8-a6f3-4a17e2697ac4.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250706T143110Z&X-Amz-Expires=300&X-Amz-Signature=9120d7a841f374c865445ddbfa51eb670feec3f33a06d580f24a74b627483efc&X-Amz-SignedHeaders=host)
+## ![Transformer Architecture](https://private-user-images.githubusercontent.com/52539396/462929825-35615e08-474c-40e4-89e6-add4384d4ee6.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTE4MTM4MTEsIm5iZiI6MTc1MTgxMzUxMSwicGF0aCI6Ii81MjUzOTM5Ni80NjI5Mjk4MjUtMzU2MTVlMDgtNDc0Yy00MGU0LTg5ZTYtYWRkNDM4NGQ0ZWU2LmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA3MDYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNzA2VDE0NTE1MVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWU0M2U5YzJiNTA0NDhiNzY4NGZjMGNhMTE3OWE1N2QyOWY5ZWFkODA3NzE1YmFiMDMyYTBlYWMzYmZmNzQ1NWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.sKNfrRbYEECrLeS_ClBrImnbyG3HMjLCyIshz44vnx4)
 
 ### 🪄 Putting It All Together
 
@@ -198,8 +198,8 @@ They are the **foundation of models like GPT, BERT, LLaMA, and T5**, which are *
 
 These resources helped me clarify transformers intuitively:
 
-1. 📘 [How Transformers Work - DataCamp](https://www.datacamp.com/tutorial/how-transformers-work) – Key ideas + code.
-2. ✍️ [Transformers & Attention - Rakshit Kalra, Medium](https://medium.com/@kalra.rakshit/introduction-to-transformers-and-attention-mechanisms-c29d252ea2c5) – Detective analogy + breakdowns.
+1. 📘 [How Transformers Work - DataCamp](https://www.datacamp.com/tutorial/how-transformers-work)
+2. ✍️ [Transformers & Attention - Rakshit Kalra, Medium](https://medium.com/@kalra.rakshit/introduction-to-transformers-and-attention-mechanisms-c29d252ea2c5)
 
 ---
 
