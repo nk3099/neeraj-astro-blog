@@ -9,7 +9,14 @@ import remarkGfm from "remark-gfm";
 // https://astro.build/config
 export default defineConfig({
   site: "https://nitiinkk.netlify.app/",
-  integrations: [mdx(), sitemap(), react()],
+  integrations: [
+    mdx({
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    }),
+    sitemap(),
+    react(),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
