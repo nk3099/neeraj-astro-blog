@@ -4,10 +4,22 @@ import NavTopics from "./NavTopics.astro";
 import NameComponent from "./NameComponent.astro";
 ---
 
-<NameComponent />
-<nav>
-  <div class="container flex flex-row justify-between text-lg pb-5">
-    <NavTopics />
-    <div class="items-center">{/* <DarkMode /> */}</div>
+<div class="flex flex-col md:flex-row justify-between items-start">
+  <div class="flex justify-between w-full md:w-auto items-center">
+    <NameComponent />
+    <button class="hamburger md:hidden focus:outline-none" aria-label="Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
   </div>
-</nav>
+
+  <nav class="w-full md:w-auto">
+    <div class="container flex flex-col md:flex-row justify-between text-lg pb-5">
+      <NavTopics />
+      <div class="items-center">{/* <DarkMode /> */}</div>
+    </div>
+  </nav>
+</div>
