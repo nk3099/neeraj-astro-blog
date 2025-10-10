@@ -1,28 +1,35 @@
 ---
-// Import the necessary components and layout
-import BlogLayoutTag from '../../components/BlogLayoutTag.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DashedComponent from "../../components/DashedComponent.astro";
 
 // Fetching all posts and generating unique tags dynamically
 export async function getStaticPaths() {
-    const allPosts = Object.values(
-        import.meta.glob("../posts/*.md", { eager: true }),
+  const allPosts = Object.values(
+    import.meta.glob("../posts/*.md", { eager: true }),
+  );
+
+  // Extract unique tags from the posts
+  const uniqueTags = [
+    ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
+  ];
+
+  // Generate paths for each tag with associated posts
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post: any) =>
+      post.frontmatter.tags.includes(tag),
     );
-    
-    // Extract unique tags from the posts
-    const uniqueTags = [
-        ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
-    ];
-    
-    // Generate paths for each tag with associated posts
-    return uniqueTags.map((tag) => {
-        const filteredPosts = allPosts.filter((post: any) =>
-            post.frontmatter.tags.includes(tag),
-        );
-        return {
-            params: { tag },
-            props: { posts: filteredPosts },
-        };
-    });
+
+    // Sort posts by published date (descending)
+    filteredPosts.sort((a: any, b: any) =>
+      new Date(b.frontmatter.publishedDate).getTime() -
+      new Date(a.frontmatter.publishedDate).getTime()
+    );
+
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
 }
 
 // Extract the current tag and posts from props
@@ -30,58 +37,72 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 
 // Page title and description
-const title = `Posts tagged with "${tag}"`;
-const description = `Explore all posts related to the tag "${tag}".`;
+const title = "Nitish Kumar";
+const description = `Posts tagged with "${tag}"`;
 ---
 
-<BlogLayoutTag {title} {description} {posts} {tag}>
+<BaseLayout {title} {description}>
+  <div class="flex items-center gap-2 mb-2">
+    <h1 class="text-3xl font-bold">🏷️ Tag: </h1>
+    <span class="text-3xl font-bold font-mono text-blue-400">#{tag}</span>
+  </div>
+  <p class="italic text-zinc-500 mt-2 mb-6 text-lg">
+    {posts.length} {posts.length === 1 ? "post" : "posts"} tagged with "{tag}"
+  </p>
+  <DashedComponent />
 
-  <!-- Section for displaying the tag page header -->
-  <section class="tag-header text-center py-8 bg-gray-100 rounded-lg">
-    <h1 class="text-4xl font-extrabold text-gray-900">{title}</h1>
-    <p class="mt-4 text-lg text-gray-700">{description}</p>
-  </section>
-
-  <!-- Section for displaying the tag cloud (list of tags) -->
-  <section class="tag-cloud my-12">
-    <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">All Tags</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      {posts[0]?.frontmatter.tags.map((tag: any) => (
-        <a 
-          href={`/tags/${tag}`} 
-          class="block px-4 py-2 bg-blue-100 text-blue-800 font-medium text-center rounded-lg hover:bg-blue-200 transition"
-          aria-label={`Explore posts with the tag ${tag}`}
-        >
-          {tag}
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <!-- Fallback for no posts -->
+  <!-- Posts Section -->
   {posts.length === 0 ? (
-    <section class="text-center py-12">
-      <p class="text-lg text-gray-600">No posts found for this tag. Please check back later!</p>
-    </section>
+    <div class="mt-8 text-center text-zinc-500">
+      <p>No posts found for this tag.</p>
+    </div>
   ) : (
-    <!-- Section for displaying posts under the current tag -->
-    <section class="tag-posts">
-      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Posts tagged with "{tag}"</h2>
-      <ul class="space-y-6">
-        {posts.map((post: any) => (
-          <li class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow">
-            <a 
-              href={`/posts/${post.slug}`} 
-              class="text-2xl font-bold text-gray-900 hover:text-blue-600"
-              aria-label={`Read post titled ${post.frontmatter.title}`}
+    <ul class="mt-8">
+      {posts.map((post: any) => (
+        <li key={post.frontmatter.slug}>
+          <div class="flex flex-row gap-6 text-lg items-baseline">
+            <!-- Displaying the formatted published date with fixed width for alignment -->
+            <p class="w-32 tabular-nums">
+              {new Date(post.frontmatter.publishedDate).toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "short",
+                day: "2-digit",
+              })}
+            </p>
+            <!-- Displaying the post title as a link -->
+            <a
+              href={post.url}
+              class="text-lg text-blue-400 hover:text-blue-300 hover:underline"
             >
               {post.frontmatter.title}
             </a>
-            <p class="mt-2 text-gray-700">{post.frontmatter.description}</p>
-            <p class="mt-4 text-sm text-gray-500">Published on {post.frontmatter.date}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
+          </div>
+        </li>
+      ))}
+    </ul>
   )}
-</BlogLayoutTag>
+
+  <!-- Back to all tags link -->
+  <div class="mt-12">
+    <a
+      href="/tags"
+      class="text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-2"
+    >
+      <svg
+        class="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 19l-7-7m0 0l7-7m-7 7h18"
+        />
+      </svg>
+      View all tags
+    </a>
+  </div>
+</BaseLayout>

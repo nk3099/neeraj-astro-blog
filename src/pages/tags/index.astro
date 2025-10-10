@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DashedComponent from "../../components/DashedComponent.astro";
+
+const allPosts = Object.values(
+  import.meta.glob("../posts/*.md", { eager: true }),
+);
+
+// Extract unique tags from all posts with their count
+const tagCounts = allPosts.reduce((acc: any, post: any) => {
+  post.frontmatter.tags?.forEach((tag: string) => {
+    acc[tag] = (acc[tag] || 0) + 1;
+  });
+  return acc;
+}, {});
+
+// Convert to array and sort alphabetically
+const uniqueTags = Object.entries(tagCounts).sort((a: any, b: any) =>
+  a[0].localeCompare(b[0])
+);
+
+const title = "Nitish Kumar";
+const description = "All the tags used in posts.";
+---
+
+<BaseLayout {title} {description}>
+  <h1 class="text-3xl font-bold">🏷️ Tags</h1>
+  <p class="italic text-zinc-500 mt-2 mb-6 text-lg">All the tags used in posts.</p>
+  <DashedComponent />
+
+  <!-- Tags Display Section -->
+  <div class="mt-8">
+    <ul class="flex flex-wrap gap-x-2 gap-y-4">
+      {
+        uniqueTags.map(([tag, count]) => (
+          <li class="group inline-block">
+            <a
+              href={`/tags/${tag}`}
+              class="flex items-center gap-1 text-lg underline decoration-dashed underline-offset-8 hover:-translate-y-0.5 hover:text-blue-400 transition-all duration-200 ease-out"
+            >
+              <svg
+                class="inline-block w-6 h-6 opacity-80 -mr-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+                />
+              </svg>
+              <span class="font-mono">{tag}</span>
+              <span class="text-sm text-zinc-500 ml-1">({count})</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
