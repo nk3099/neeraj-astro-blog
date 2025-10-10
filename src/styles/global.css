@@ -13,12 +13,16 @@ html {
 }
 
 /* Mobile navigation */
-.nav-links {
-  display: none;
-}
+@media (max-width: 767px) {
+  .nav-links {
+    display: none;
+    width: 100%;
+  }
 
-.nav-links.expanded {
-  display: flex;
+  .nav-links.expanded {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (min-width: 768px) {

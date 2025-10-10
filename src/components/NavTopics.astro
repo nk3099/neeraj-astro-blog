@@ -6,9 +6,9 @@ import "../styles/docs.scss";
 import "../styles/global.css"
 ---
 
-<div class="flex md:flex-row flex-col gap-3 mt-3 text-blue-400 nav-links">
+<div class="nav-links flex md:flex-row flex-col gap-3 mt-3 text-blue-400">
   {links.map((link) => (
-    <a href={link.href} class="capitalize w-full hover:text-blue-600 transition-colors" data-astro-prefetch>
+    <a href={link.href} class="capitalize w-full hover:text-blue-600 transition-colors py-2 md:py-0" data-astro-prefetch>
       {link.label}
     </a>
   ))}
