@@ -8,7 +8,7 @@ import "../styles/global.css"
 
 <div class="flex flex-row gap-3 mt-3 text-blue-400">
   {links.map((link) => (
-    <a href={link.href} class="capitalize w-full">
+    <a href={link.href} class="capitalize w-full" data-astro-prefetch>
       {link.label}
     </a>
   ))}

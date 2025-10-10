@@ -4,11 +4,13 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import { GoogleAnalytics } from "astro-analytics";
+import { ViewTransitions } from "astro:transitions";
 const { title, description } = Astro.props;
 ---
 
 <html lang="en" data-theme="dark">
     <Header {title} {description} />
+    <ViewTransitions />
     <body>
         <main class="mx-auto break-words bg-red leading-6 px-52 pt-10 ">
             <Navbar/>
@@ -16,7 +18,7 @@ const { title, description } = Astro.props;
             <div>
                 <slot/>
             </div>
-  
+
         <Footer />
     </main>
 
@@ -24,5 +26,5 @@ const { title, description } = Astro.props;
         <script>
             import "../scripts/menu.js";
         </script>
-    </m>
+    </body>
 </html>

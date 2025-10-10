@@ -25,4 +25,5 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkGfm],
   },
+  viewTransitions: true,
 });

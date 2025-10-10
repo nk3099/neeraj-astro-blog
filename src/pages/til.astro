@@ -21,7 +21,7 @@ const title ="Nitish Kumar"
   <div class="italic text-zinc-500 mt-6 flex flex-row justify-between text-lg">
     <p>
       Subscribe to{" "}
-      <a href="https://hashnode.com/@nov1ce" class="text-blue-400 hover:text-blue-300 hover:underline">
+      <a href="https://hashnode.com/@nov1ce" class="text-blue-400 hover:text-blue-300 hover:underline" target="_blank" rel="noopener noreferrer">
         Hashnode Feed
       </a>
     </p>
@@ -42,7 +42,7 @@ const title ="Nitish Kumar"
               day: "2-digit",
             })}
           </p>
-          <a href={post.url} class="text-lg text-blue-400 hover:text-blue-300 hover:underline">
+          <a href={post.url} class="text-lg text-blue-400 hover:text-blue-300 hover:underline" data-astro-prefetch>
             {post.frontmatter.title}
           </a>
         </div>

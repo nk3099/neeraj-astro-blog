@@ -73,6 +73,7 @@ const description = `Posts tagged with "${tag}"`;
             <a
               href={post.url}
               class="text-lg text-blue-400 hover:text-blue-300 hover:underline"
+              data-astro-prefetch
             >
               {post.frontmatter.title}
             </a>
@@ -87,6 +88,7 @@ const description = `Posts tagged with "${tag}"`;
     <a
       href="/tags"
       class="text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-2"
+      data-astro-prefetch
     >
       <svg
         class="w-4 h-4"
