@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: "Securing JSON-RPC: Authentication Strategies"
 publishedDate: 2025-04-25
 description: "Securing JSON-RPC: Authentication Strategies"
-author: "Nitish Kumar"
+author: "Neeraj Kumar"
 image:
   url: ""
   alt: "Securing JSON-RPC: Authentication Strategies"

@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: "Understanding BullMQ: A Simple Yet Powerful Message Queue"
 publishedDate: 2024-10-05
 description: ""
-author: "Nitish Kumar"
+author: "Neeraj Kumar"
 image:
   url: ""
   alt: ""

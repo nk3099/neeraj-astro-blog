@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: "Building an Agentic AI Chatbot for Table Booking"
 publishedDate: 2025-03-22
 description: "Building an Agentic AI Chatbot for Table Booking"
-author: "Nitish Kumar"
+author: "Neeraj Kumar"
 image:
   url: ""
   alt: "Agentic AI"

@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: "SQL Views Explained: Normal Views vs Materialized Views"
 publishedDate: 2025-04-25
 description: "SQL Views Explained: Normal Views vs Materialized Views"
-author: "Nitish Kumar"
+author: "Neeraj Kumar"
 image:
   url: ""
   alt: "Understanding views in SQL"

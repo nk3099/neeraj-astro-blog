@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: "Before Fine-Tuning: Deep Dive into Transformers"
 publishedDate: 2025-07-06
 description: "A structured, in-depth learn-in-public breakdown of transformers before fine-tuning"
-author: "Nitish Kumar"
+author: "Neeraj Kumar"
 image:
   url: ""
   alt: "Deep Dive into Transformers"
@@ -129,9 +129,9 @@ This enables **contextual representations**, where tokens dynamically decide wha
 
 Transformers lack recurrence and process tokens in parallel, requiring **positional encodings to inject order information**.
 
-They:
-✅ Help differentiate “Nitish loves AI.” vs. “AI loves Nitish.”  
-✅ Allow the model to learn position-based relationships.
+<!-- They:
+✅ Help differentiate “Neeraj loves AI.” vs. “AI loves Nitish.”  
+✅ Allow the model to learn position-based relationships. -->
 
 **Sinusoidal positional encoding:**
 
