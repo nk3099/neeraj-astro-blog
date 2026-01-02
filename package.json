@@ -15,7 +15,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/ts-plugin": "^1.10.4",
     "@tailwindcss/vite": "^4.0.12",
-    "astro": "^5.4.2",
+    "astro": "^5.16.6",
     "astro-analytics": "^2.7.0",
     "bulma": "^1.0.3",
     "gray-matter": "^4.0.3",
