@@ -1,80 +1,54 @@
+
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "SQL: Day2"
+title: "SQL: Day 2"
 publishedDate: 2026-01-02
-description: ""
+description: "Calculate business days excluding weekends and holidays"
 author: "Neeraj Kumar"
 image:
   url: ""
   alt: ""
-tags: ["CROSS APPLY"]
-#hashnodeUrl: "https://nov1ce.hashnode.dev/integrating-ngrok-hashnode-webhook-api"
+tags: ["SQL", "CROSS APPLY", "Business Days"]
 featuredPost: false
 ---
 
 ## 🚀 Introduction
 
-**Day 2 Challenge :**  
+Welcome to **Day 2 of the SQL Challenge**!  
+Today’s task is to calculate **business days** between two dates by excluding **weekends** and **public holidays**. This is a common requirement in ticketing systems, SLAs, and reporting dashboards.
 
-```sql
-Day2: Business Days
-
-create table tickets
-(
-ticket_id varchar(10),
-create_date date,
-resolved_date date
-);
-delete from tickets;
-insert into tickets values
-(1,'2022-08-01','2022-08-03')
-,(2,'2022-08-01','2022-08-12')
-,(3,'2022-08-01','2022-08-16');
-create table holidays
-(
-holiday_date date
-,reason varchar(100)
-);
-delete from holidays;
-insert into holidays values
-('2022-08-11','Rakhi'),('2022-08-15','Independence day'),('2022-08-13','test_holiday');
-
-select * from tickets;
-select * from holidays;
-```
+---
 
 ### ✅ Problem Setup
 
-write sql query to find business day between create date and resolved date by excluding weekends and public holidays
+We have two tables:
+
+- **tickets** → contains `ticket_id`, `create_date`, and `resolved_date`
+- **holidays** → contains `holiday_date` and `reason`
+
+Here’s the schema and sample data:
 
 ```sql
-select A.ticket_id, A.create_date,A.resolved_date,(A.excluding_weekend_days-A.no_of_holidays) as business_days
-from
-(select ticket_id,create_date,resolved_date,count(holiday_date) as no_of_holidays,
-datediff(day,create_date,resolved_date) as total_days,
-datediff(day,create_date,resolved_date) - 2*datediff(week,create_date,resolved_date) as excluding_weekend_days
-from tickets
-left join holidays on holiday_date between create_date and resolved_date
-group by ticket_id, create_date,resolved_date) A
-```
+CREATE TABLE tickets (
+    ticket_id VARCHAR(10),
+    create_date DATE,
+    resolved_date DATE
+);
 
--- IF holiday is on the weekend, then calculate business holidays
---ie, weekend means saturday (or) sunday
+CREATE TABLE holidays (
+    holiday_date DATE,
+    reason VARCHAR(100)
+);
 
--- select datename(weekday,'2022-08-13'); //ie. Saturday
---select datepart(weekday,'2022-08-13'); //ie. 7 (saturday-7, sunday-1)
+DELETE FROM tickets;
+INSERT INTO tickets VALUES
+(1,'2022-08-01','2022-08-03'),
+(2,'2022-08-01','2022-08-12'),
+(3,'2022-08-01','2022-08-16');
 
-```sql
-select A.ticket_id, A.create_date,A.resolved_date,(A.excluding_weekend_days-A.no_of_holidays) as business_days
-from
-(
-select ticket_id,create_date,resolved_date,count(holiday_date) as no_of_holidays,
-datediff(day,create_date,resolved_date) as total_days,
-datediff(day,create_date,resolved_date) - 2*datediff(week,create_date,resolved_date) as excluding_weekend_days
-from tickets
-left join holidays on holiday_date between create_date and resolved_date and datename(weekday,holiday_date) not in ('Saturday','Sunday')
-group by ticket_id, create_date,resolved_date
-) A
-```
-
-
+DELETE FROM holidays;
+INSERT INTO holidays VALUES
+('2022-08-11','Rakhi'),
+('2022-08-15','Independence Day'),
+('2022-08-13','Test Holiday');
+``
